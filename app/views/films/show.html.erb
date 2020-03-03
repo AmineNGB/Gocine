@@ -1,4 +1,10 @@
-<h1>Films#show</h1>
-<p>Find me in app/views/films/show.html.erb</p>
-
-<p><%= image_tag @film.photo_url %></p>
+<div class="d-flex flex-column">
+  <h1 class="mt-2"><strong><%= @film.title %></strong></h1>
+  <div class="d-flex justify-content-center mt-4 mb-4"><%= image_tag @film.photo_url %></div>
+  <div><p>Synopsis: <%= @film.synopsis %></p></div>
+  <p>Durée: <%= @film.duration %></p>
+  <p>Date de sortie: <%= @film.date_release %></p>
+  <p>Genre: <%= @film.genre %></p>
+  <p>Note Presse: <%= @film.rate_press %>/5</p>
+  <p>Note spéctateur: <%= @film.rate_viewer %>/5</p>
+</div>
