@@ -8,8 +8,11 @@ gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
 gem 'devise'
+
+=======
 gem 'awesome_print'
 
+>>>>>>> 8e211f8e7e1a8cbc7ce3fd5aef5fd4b8351ca919
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'sassc-rails'

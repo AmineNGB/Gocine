@@ -43,6 +43,96 @@ films_attributes = [
    genre: 'Biopic, Drame',
    rate_press: 3.9,
    rate_viewer: 4.1
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
+   title: 'Dark Waters',
+   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
+   duration: '2 h 08 min',
+   date_release: '26 février 2020',
+   genre: 'Biopic, Drame',
+   rate_press: 3.9,
+   rate_viewer: 4.1
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/02/10/13/26/1423227.jpg',
+   title: 'Invisible man',
+   synopsis: 'Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se réfugie auprès de sa sœur, leur ami d\'enfance et sa fille adolescente. Mais quand l\'homme se suicide en laissant à Cecilia une part importante de son immense fortune, celle-ci commence à se demander s\'il est réellement mort',
+   duration: '2 h 05 min',
+   date_release: '26 février 2020',
+   genre: 'Fantastique, Epouvante-horreur, Thriller',
+   rate_press: 3.5,
+   rate_viewer: 3.9
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/09/03/4377710.jpg',
+   title: 'Mine de rien',
+   synopsis: 'Dans une région qui fut le fleuron de l\'industrie minière, deux chômeurs de longue durée, ont l\'idée de construire un parc d\'attraction "artisanal" sur une ancienne mine de charbon désaffectée. En sauvant la mine et sa mémoire, ils vont retrouver force et dignité.',
+   duration: '1 h 25 min',
+   date_release: '26 février 2020',
+   genre: 'Comédie',
+   rate_press: 3.3,
+   rate_viewer: 3.5
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
+   title: 'Dark Waters',
+   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
+   duration: '2 h 08 min',
+   date_release: '26 février 2020',
+   genre: 'Biopic, Drame',
+   rate_press: 3.9,
+   rate_viewer: 4.1
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
+   title: 'Dark Waters',
+   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
+   duration: '2 h 08 min',
+   date_release: '26 février 2020',
+   genre: 'Biopic, Drame',
+   rate_press: 3.9,
+   rate_viewer: 4.1
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/02/10/13/26/1423227.jpg',
+   title: 'Invisible man',
+   synopsis: 'Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se réfugie auprès de sa sœur, leur ami d\'enfance et sa fille adolescente. Mais quand l\'homme se suicide en laissant à Cecilia une part importante de son immense fortune, celle-ci commence à se demander s\'il est réellement mort',
+   duration: '2 h 05 min',
+   date_release: '26 février 2020',
+   genre: 'Fantastique, Epouvante-horreur, Thriller',
+   rate_press: 3.5,
+   rate_viewer: 3.9
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/09/03/4377710.jpg',
+   title: 'Mine de rien',
+   synopsis: 'Dans une région qui fut le fleuron de l\'industrie minière, deux chômeurs de longue durée, ont l\'idée de construire un parc d\'attraction "artisanal" sur une ancienne mine de charbon désaffectée. En sauvant la mine et sa mémoire, ils vont retrouver force et dignité.',
+   duration: '1 h 25 min',
+   date_release: '26 février 2020',
+   genre: 'Comédie',
+   rate_press: 3.3,
+   rate_viewer: 3.5
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
+   title: 'Dark Waters',
+   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
+   duration: '2 h 08 min',
+   date_release: '26 février 2020',
+   genre: 'Biopic, Drame',
+   rate_press: 3.9,
+   rate_viewer: 4.1
+  },
+  {
+   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
+   title: 'Dark Waters',
+   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
+   duration: '2 h 08 min',
+   date_release: '26 février 2020',
+   genre: 'Biopic, Drame',
+   rate_press: 3.9,
+   rate_viewer: 4.1
   }
 ]
 
