@@ -1,0 +1,9 @@
+.fa-times-circle:before {
+  content: "\f057";
+  font-size: 32px;
+  color: rgb(25, 25, 25)
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
