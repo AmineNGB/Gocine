@@ -4,14 +4,16 @@
 <div id="main">
 <% @films.each do |film|%>
 <div class="carte_a">
-
-<%= image_tag film.photo_url,size:"150x190" %>
-
-<p class="bo"><%= film.title %></p>
-<%= link_to "Details", film_path(film)%>
+  <%= link_to film_path(film) do %>
+    <%= image_tag film.photo_url,size:"160x200" %>
+    <%= link_to root_path do %>
+      <i class="fas fa-plus-square fa-4x"></i>
+    <% end %>
+  <% end %>
 </div>
 <%end%>
 </div>
+
 
 
 
