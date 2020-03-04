@@ -1,6 +1,8 @@
-puts 'Cleaning database...'
-Film.destroy_all
-User.destroy_all
+require 'open-uri'
+require 'nokogiri'
+require 'awesome_print'
+"Cleaning DataBase"
+# Film.destroy_all
 
 user = User.new
 user.email = 'amine@gmail.com'
@@ -12,168 +14,34 @@ user2.email = 'nico@gmail.com'
 user2.password = 'password'
 user2.save!
 
-puts 'Creating Films...'
-films_attributes = [
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/02/10/13/26/1423227.jpg',
-   title: 'Invisible man',
-   synopsis: 'Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se réfugie auprès de sa sœur, leur ami d\'enfance et sa fille adolescente. Mais quand l\'homme se suicide en laissant à Cecilia une part importante de son immense fortune, celle-ci commence à se demander s\'il est réellement mort',
-   duration: '2 h 05 min',
-   date_release: '26 février 2020',
-   genre: 'Fantastique, Epouvante-horreur, Thriller',
-   rate_press: 3.5,
-   rate_viewer: 3.9
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/09/03/4377710.jpg',
-   title: 'Mine de rien',
-   synopsis: 'Dans une région qui fut le fleuron de l\'industrie minière, deux chômeurs de longue durée, ont l\'idée de construire un parc d\'attraction "artisanal" sur une ancienne mine de charbon désaffectée. En sauvant la mine et sa mémoire, ils vont retrouver force et dignité.',
-   duration: '1 h 25 min',
-   date_release: '26 février 2020',
-   genre: 'Comédie',
-   rate_press: 3.3,
-   rate_viewer: 3.5
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/02/10/13/26/1423227.jpg',
-   title: 'Invisible man',
-   synopsis: 'Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se réfugie auprès de sa sœur, leur ami d\'enfance et sa fille adolescente. Mais quand l\'homme se suicide en laissant à Cecilia une part importante de son immense fortune, celle-ci commence à se demander s\'il est réellement mort',
-   duration: '2 h 05 min',
-   date_release: '26 février 2020',
-   genre: 'Fantastique, Epouvante-horreur, Thriller',
-   rate_press: 3.5,
-   rate_viewer: 3.9
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/09/03/4377710.jpg',
-   title: 'Mine de rien',
-   synopsis: 'Dans une région qui fut le fleuron de l\'industrie minière, deux chômeurs de longue durée, ont l\'idée de construire un parc d\'attraction "artisanal" sur une ancienne mine de charbon désaffectée. En sauvant la mine et sa mémoire, ils vont retrouver force et dignité.',
-   duration: '1 h 25 min',
-   date_release: '26 février 2020',
-   genre: 'Comédie',
-   rate_press: 3.3,
-   rate_viewer: 3.5
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/02/10/13/26/1423227.jpg',
-   title: 'Invisible man',
-   synopsis: 'Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se réfugie auprès de sa sœur, leur ami d\'enfance et sa fille adolescente. Mais quand l\'homme se suicide en laissant à Cecilia une part importante de son immense fortune, celle-ci commence à se demander s\'il est réellement mort',
-   duration: '2 h 05 min',
-   date_release: '26 février 2020',
-   genre: 'Fantastique, Epouvante-horreur, Thriller',
-   rate_press: 3.5,
-   rate_viewer: 3.9
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/09/03/4377710.jpg',
-   title: 'Mine de rien',
-   synopsis: 'Dans une région qui fut le fleuron de l\'industrie minière, deux chômeurs de longue durée, ont l\'idée de construire un parc d\'attraction "artisanal" sur une ancienne mine de charbon désaffectée. En sauvant la mine et sa mémoire, ils vont retrouver force et dignité.',
-   duration: '1 h 25 min',
-   date_release: '26 février 2020',
-   genre: 'Comédie',
-   rate_press: 3.3,
-   rate_viewer: 3.5
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  },
-  {
-   photo_url: 'http://fr.web.img6.acsta.net/c_215_290/pictures/20/01/23/14/05/1683095.jpg',
-   title: 'Dark Waters',
-   synopsis: 'Robert Bilott est un avocat spécialisé dans la défense des industries chimiques. Interpellé par un paysan, voisin de sa grand-mère, il va découvrir que la campagne idyllique de son enfance est empoisonnée par une usine du puissant groupe chimique DuPont, premier employeur de la région.',
-   duration: '2 h 08 min',
-   date_release: '26 février 2020',
-   genre: 'Biopic, Drame',
-   rate_press: 3.9,
-   rate_viewer: 4.1
-  }
-]
+"Creation des films à l\'affiche"
 
-# ap "je suis la"
+films = []
 
-# planets_attributes.each do |planets_attribute|
-#   ap "---------------------------------"
-#   photo_file = planets_attribute.delete(:photo_file)
-#   ap planets_attribute
-#   planet = Planet.create!(planets_attribute)
-#   ap photo_file
-#   planet.photo.attach(io: File.open("photo_seed/#{photo_file}"), filename: 'toto.svg')
-# end
-
-# reservation_att = [
-#   {
-#     date: 20201001,
-#     user: user,
-#     planet: Planet.all.sample,
-#   },
-#   {
-#     date: 20201018,
-#     user: user,
-#     planet: Planet.all.sample,
-#   },
-#   {
-#     date: 20211201,
-#     user: user2,
-#     planet: Planet.all.sample,
-#   },
-#   {
-#     date: 21211201,
-#     user: user2,
-#     planet: Planet.all.sample,
-#   },
-# ]
-
-Film.create!(films_attributes)
-
-puts 'Finished!'
-
-Film.all.each do |el|
-  p el.title
+# html_file_path = open("http://www.allocine.fr/film/aucinema/").path
+# doc = Nokogiri::HTML(File.open(html_file_path))
+doc = Nokogiri::HTML(File.open('file.html').read)
+doc.search('.card.entity-card.entity-card-list.cf').take(15).each do |link|
+  title = link.search('.meta .meta-title .meta-title-link').text.strip
+  thumbnail_element = link.search('.thumbnail-img')
+  photo_url = (thumbnail_element.attr('data-src') || thumbnail_element.attr('src')).value
+  synopsis = link.search('.content-txt').text.strip
+  date_release = link.search('.meta-body-item .date').text.strip
+  duration_el = link.search('.meta-body-item.meta-body-info').text.strip
+  toto = duration_el.split("\n").map { |item| item.strip }.reject{ |item| item.empty? }
+  date = toto[0]
+  duration = toto[2]
+  genre = toto[4..-1].join(" ")
+  rating_ele = link.search('.rating-item-content .stareval-note').text.gsub(",", ".")
+  rate_press = rating_ele[0..2].to_f
+  rate_viewer = rating_ele[3..5].to_f
+  allocine_id = link.search('.meta-title-link').attr("href").text.strip
+  films << { title: title, photo_url: photo_url, synopsis: synopsis, duration: duration, date_release: date_release, genre: genre, rate_press: rate_press, rate_viewer: rate_viewer, allocine_id: allocine_id }
 end
+
+films.each do |movie|
+ Film.create!(movie)
+end
+
+
+ap Film.all
