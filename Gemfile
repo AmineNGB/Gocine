@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
 gem 'devise'
+
 gem 'awesome_print'
 
 gem 'autoprefixer-rails'

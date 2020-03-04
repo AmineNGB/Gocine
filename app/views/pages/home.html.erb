@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="color">
+<h1>A l'affiche</h1>
+</div>
+<div id="main">
+<% @films.each do |film|%>
+<div class="carte_a">
+
+<%= image_tag film.photo_url,size:"150x190" %>
+
+<p class="bo"><%= film.title %></p>
+<%= link_to "Details", film_path(film)%>
+</div>
+<%end%>
+</div>
+
+
+

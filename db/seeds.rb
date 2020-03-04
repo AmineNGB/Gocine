@@ -3,6 +3,17 @@ require 'nokogiri'
 require 'awesome_print'
 "Cleaning DataBase"
 # Film.destroy_all
+
+user = User.new
+user.email = 'amine@gmail.com'
+user.password = 'password'
+user.save!
+
+user2 = User.new
+user2.email = 'nico@gmail.com'
+user2.password = 'password'
+user2.save!
+
 "Creation des films à l\'affiche"
 
 films = []

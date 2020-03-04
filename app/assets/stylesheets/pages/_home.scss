@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+#main {
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows: 310px 310px;
+  grid-gap: 10px;
+  margin-top: 44px;
+  justify-items:center;
+  justify-content:end;
+  align-items:center;
+  align-content:end;
+  grid-auto-rows:360px;
+  grid-auto-flow:rows;
+  background-color: #dedfe3;
+
+  }
+
+.carte_a {
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  width:auto;
+  height: auto;
+  border-radius: 5px;
+
+}
+
+
+
+.bo{
+  margin-top: 0;
+  font-weight: bolder;
+}
+
+
+.color{
+  color:#fecc00;
+  text-align: center;
+  background-color:#08288b;
+  height:auto;
+  }
+
