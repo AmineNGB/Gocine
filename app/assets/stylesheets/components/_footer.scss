@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   height: 50px;
-  padding: 0px 50px;
+  // padding: 0px 50px;
   color: rgba(0,0,0,0.8);
   position: absolute;
-  bottom: 0px;
+  bottom: -50px;
   width: 100vw;
+  max-width: 100%;
 }
 .footer-links {
   display: flex;
