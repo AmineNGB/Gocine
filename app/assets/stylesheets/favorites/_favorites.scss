@@ -1,0 +1,12 @@
+.film-sortable {
+  cursor: grab;
+}
+
+.film-sortable:active {
+  cursor: grabbing;
+}
+
+.film-sortable.ghost {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
