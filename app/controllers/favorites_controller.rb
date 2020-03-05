@@ -4,7 +4,8 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Film.new(favorites_params)
+    @favorite = Favorite.new(favorites_params)
+    @user = current_user
     @favorite.save!
   end
 
