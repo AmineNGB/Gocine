@@ -20,6 +20,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'acts_as_list'
 
+# gem 'rest-client', '~> 1.8'
+gem 'httparty', '~> 0.13.7'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

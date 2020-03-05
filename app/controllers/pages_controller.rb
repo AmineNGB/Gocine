@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def schedule
   end
+
+  def invitation
+  end
 end
