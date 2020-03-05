@@ -8,7 +8,6 @@ gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
 gem 'devise'
-
 gem 'awesome_print'
 
 gem 'autoprefixer-rails'
@@ -17,6 +16,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'acts_as_list'
 
 # gem 'rest-client', '~> 1.8'
 gem 'httparty', '~> 0.13.7'

@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'awesome_print'
 "Cleaning DataBase"
-# Film.destroy_all
+User.destroy_all
 
 user = User.new
 user.email = 'amine@gmail.com'
@@ -26,6 +26,27 @@ films = []
 
 # html_file_path = open("http://www.allocine.fr/film/aucinema/").path
 # doc = Nokogiri::HTML(File.open(html_file_path))
+
+
+favorites_attributes = [
+  {
+    user_id: user.id,
+    film_id: 2,
+  },
+  {
+    user_id: user.id,
+    film_id: 10,
+  },
+   {
+    user_id: user.id,
+    film_id: 1,
+  },
+   {
+    user_id: user.id,
+    film_id: 4,
+  }
+]
+Favorite.create!(favorites_attributes)
 
 
 
@@ -95,4 +116,6 @@ cinema_attributes.each do |attr|
 end
 
 ap Film.all
+
+ap Favorite.all
 
