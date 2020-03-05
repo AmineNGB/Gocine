@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_100849) do
   enable_extension "plpgsql"
 
   create_table "cinemas", force: :cascade do |t|
+
     t.string "name"
     t.string "ville"
     t.string "allocine_id"
