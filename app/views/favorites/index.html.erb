@@ -1,13 +1,13 @@
 <div class="container">
   <h1 class="text-center">Ma liste de Films</h1>
 
-  <div class="favorites" id="favorite">
-    <% current_user.films.each_with_index do |film, index| %>
-    <div class="d-flex justify-content-between align-items-center mb-1" style="height: 100px; width: 100%; background-color: red">
+  <div class="favorites" id="favorite" data-url="<%= api_draganddrop_path %>">
+    <% current_user.favorites.each_with_index do |favorite, index| %>
+    <div data-id="<%= favorite.id %>" class="d-flex justify-content-between align-items-center mb-1" id="favsortable" style="height: 100px; width: 100%; background-color: red">
       <div>
-        <%= image_tag film.photo_url, style: "height: 100px; width: 70px;" %>
+        <%= image_tag favorite.film.photo_url, style: "height: 100px; width: 70px;" %>
       </div>
-      <p><%= film.title %></p>
+      <p><%= favorite.film.title %></p>
       <%= link_to :back, class: "p-2" do %>
       <i class="fas fa-bars"></i>
       <% end %>

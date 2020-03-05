@@ -50,7 +50,15 @@ favorites_attributes = [
   },
   {
     user_id: user.id,
-    film_id: 3,
+    film_id: 10,
+  },
+   {
+    user_id: user.id,
+    film_id: 1,
+  },
+   {
+    user_id: user.id,
+    film_id: 4,
   }
 ]
 Favorite.create!(favorites_attributes)
