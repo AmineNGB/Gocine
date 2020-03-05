@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_140258) do
+ActiveRecord::Schema.define(version: 2020_03_05_100849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cinemas", force: :cascade do |t|
+
+    t.string "name"
+    t.string "ville"
+    t.string "allocine_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,12 +50,22 @@ ActiveRecord::Schema.define(version: 2020_03_04_140258) do
     t.text "synopsis"
     t.string "duration"
     t.string "date_release"
-    t.string "genre"
+    t.string "genre", array: true
     t.float "rate_press"
     t.float "rate_viewer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "allocine_id"
+  end
+
+  create_table "seances", force: :cascade do |t|
+    t.string "horaire"
+    t.bigint "cinema_id", null: false
+    t.bigint "film_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cinema_id"], name: "index_seances_on_cinema_id"
+    t.index ["film_id"], name: "index_seances_on_film_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +87,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_140258) do
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "films"
   add_foreign_key "favorites", "users"
+  add_foreign_key "seances", "cinemas"
+  add_foreign_key "seances", "films"
 end

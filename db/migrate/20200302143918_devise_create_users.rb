@@ -21,8 +21,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       # t.inet     :current_sign_in_ip
       # t.inet     :last_sign_in_ip
 
-    devise_parameter_sanitizer.permit(:sig
-    devise_parameter_sanitizer.permit(:sig
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
