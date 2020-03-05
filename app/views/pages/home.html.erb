@@ -6,7 +6,7 @@
 <div class="carte_a">
   <%= link_to film_path(film) do %>
     <%= image_tag film.photo_url,size:"160x200" %>
-    <%= link_to root_path do %>
+    <%= link_to favorites_path do %>
       <i class="fas fa-plus-square fa-4x"></i>
     <% end %>
   <% end %>
