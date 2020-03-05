@@ -29,8 +29,3 @@ const buildData = () => {
 
 
 export { initSortable };
-
-// sortable({
-//     axis: 'y',
-//     update: function (event, ui) {
-//         var data = $(this).sortable('serialize');

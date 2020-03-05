@@ -1,16 +1,14 @@
 <div class="container">
-  <h1 class="text-center">Ma liste de Films</h1>
+  <h1 class="text-center"><strong>Mes Films</strong>  </h1>
 
-  <div class="favorites" id="favorite" data-url="<%= api_draganddrop_path %>">
+  <div class="favorites pt-4" id="favorite" data-url="<%= api_draganddrop_path %>">
     <% current_user.favorites.each_with_index do |favorite, index| %>
-    <div data-id="<%= favorite.id %>" class="d-flex justify-content-between align-items-center mb-1" id="favsortable" style="height: 100px; width: 100%; background-color: red">
+    <div data-id="<%= favorite.id %>" class="d-flex justify-content-between align-items-center mb-1" id="favsortable">
       <div>
         <%= image_tag favorite.film.photo_url, style: "height: 100px; width: 70px;" %>
       </div>
       <p><%= favorite.film.title %></p>
-      <%= link_to :back, class: "p-2" do %>
-      <i class="fas fa-bars"></i>
-      <% end %>
+      <i class="fas fa-bars p-2"></i>
     </div>
     <% end %>
   </div>
