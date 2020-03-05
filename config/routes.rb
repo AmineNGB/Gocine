@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/profile' , as: :profile
   devise_for :users
   get 'pages/schedule'
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:index, :create, :destroy]
   # get 'favorites/create'
   # get 'favorites/destroy'
 

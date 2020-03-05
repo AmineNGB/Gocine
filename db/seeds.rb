@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'awesome_print'
 "Cleaning DataBase"
-# Film.destroy_all
+User.destroy_all
 
 user = User.new
 user.email = 'amine@gmail.com'
@@ -43,5 +43,19 @@ films.each do |movie|
  Film.create!(movie)
 end
 
+favorites_attributes = [
+  {
+    user_id: user.id,
+    film_id: 2,
+  },
+  {
+    user_id: user.id,
+    film_id: 3,
+  }
+]
+Favorite.create!(favorites_attributes)
+
+
 
 ap Film.all
+ap Favorite.all
