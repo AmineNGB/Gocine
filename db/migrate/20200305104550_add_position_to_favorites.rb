@@ -5,3 +5,4 @@ class AddPositionToFavorites < ActiveRecord::Migration[6.0]
       favorite.update_column :position, index
   end
 end
+end
