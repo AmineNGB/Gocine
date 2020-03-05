@@ -6,7 +6,7 @@ class CreateFilms < ActiveRecord::Migration[6.0]
       t.text :synopsis
       t.string :duration
       t.string :date_release
-      t.string :genre
+      t.string :genre, array: true
       t.float :rate_press
       t.float :rate_viewer
 

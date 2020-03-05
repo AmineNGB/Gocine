@@ -1,2 +1,18 @@
-<h1>Users#profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
+<!-- <h1>Mon profil</h1> -->
+<div class="centered">
+  <div class="profile_top">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-XL dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <h3><%= current_user.prenom %> <%= current_user.nom %></h3>
+  </div>
+
+  <div class=" d-flex bd-highlight">
+    <p class="bd-highlight"><strong>Mail:</strong></p>
+    <p class="ml-auto bd-highlight"><%= current_user.email %></p>
+  </div>
+  <p><%= current_user.email %></p>
+  <p><%= current_user.nom %></p>
+  <p><%= current_user.phone %></p>
+
+</div>
+
+
