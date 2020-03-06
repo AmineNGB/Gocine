@@ -4,4 +4,10 @@ class PagesController < ApplicationController
   def home
     @films = Film.all
   end
+
+  def schedule
+  end
+
+  def invitation
+  end
 end

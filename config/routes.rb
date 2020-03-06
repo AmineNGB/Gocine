@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/profile' , as: :profile
+  # get 'users/profile' , as: :profile
   devise_for :users
-
-  resources :favorites, only: [:create, :destroy]
+  get 'pages/schedule'
+  resources :favorites, only: [:index, :create, :destroy]
+  get 'pages/invitation'
   # get 'favorites/create'
   # get 'favorites/destroy'
 
@@ -18,6 +19,13 @@ Rails.application.routes.draw do
   # get 'films/show'
   # get 'films/index'
 
+
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    patch 'draganddrop', to: 'favorites#sort'
+  end
 end
+
