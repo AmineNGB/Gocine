@@ -1,32 +1,21 @@
-.friendcard{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-rows:1fr;
-  grid-gap: 15px;
-  margin-top: 30px;
-}
-
-.cardfri{
-  width:auto;
-  height: 100px;
-  box-shadow: 1px 1px 5px rgba(black, 0.2);
+.friendcard {
   background-color: #f4eeff;
   border-radius: 25px;
-  position:relative;
+  box-shadow: 1px 1px 5px rgba(black, 0.2);
+}
+
+.yop {
+  color:#424874;
+  right:25px;
+  top:25px;
+}
+
+.d-flex{
+ height: 130px;
 }
 
 #ol{
-  position:absolute;
-  left:15px;
-  top:15px;
-  width:72px;
-  height:72px;
-}
-
-
-.fas{
-  color:black;
-  right:25px;
-  top:25px;
+  height: 80px;
+   width: 80px
 
 }
