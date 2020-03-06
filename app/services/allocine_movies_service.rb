@@ -1,7 +1,10 @@
 class AllocineMoviesService
-  def initialize(allocine_id)
+
+  def initialize(allocine_id, id)
     @allocine_id = allocine_id
+    @id = id
   end
+
   def call
     url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-0/"
     response = HTTParty.post(url, headers={})
@@ -9,7 +12,7 @@ class AllocineMoviesService
     movies.each do |hash|
       movie = hash["movie"]
 
-      Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
         film.title = movie["title"]
         film.duration = movie["runtime"]
         film.synopsis = movie["synopsis"]
@@ -22,33 +25,175 @@ class AllocineMoviesService
         film.save
       end
 
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-1/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
 
-      # movie_attr = {
-      # title: movie["title"],
-      # duration: movie["runtime"],
-      # synopsis: movie["synopsis"],
-      # allocine_id: movie["internalId"],
-      # photo_url: movie["poster"]["url"],
-      # date_release: movie["releases"][0]["releaseDate"]["date"],
-      # rate_viewer: movie["stats"]["userRating"]["score"],
-      # # rate_press: movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"],
-      # genre: movie["genres"].each { |n| "#{n["translate"]},"}
-      # }
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
 
-      # movie = hash["movie"]
-      # ap movie["title"]
-      # ap movie["runtime"]
-      # ap movie["synopsis"]
-      # ap movie["internalId"]
-      # ap movie["poster"]["url"]
-      # ap movie["releases"][0]["releaseDate"]["date"]
-      # ap movie["stats"]["userRating"]["score"]
-      # ap movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-      # movie["genres"].each { |n| ap "#{n["translate"]},"}
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-2/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
 
-      # ap "--------------------------------------------"
-      # movie = Movie.find_or_create_by(allocine_id: )
-      # Seance.create(cinema: , movie: )
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
+
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-3/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
+
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
+
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-4/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
+
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
+
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-5/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
+
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
+
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
+    end
+    url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-6/"
+    response = HTTParty.post(url, headers={})
+    movies = JSON.parse(response.body)["results"]
+    movies.each do |hash|
+      movie = hash["movie"]
+
+      @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
+        film.title = movie["title"]
+        film.duration = movie["runtime"]
+        film.synopsis = movie["synopsis"]
+        film.allocine_id = movie["internalId"]
+        film.photo_url = movie["poster"]["url"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.genre = movie["genres"].map { |n| n["translate"] }
+        film.save
+      end
+
+      hash["showtimes"]["multiple"].each do |hash2|
+        seance = Seance.new
+        seance.horaire = hash2["startsAt"]
+        seance.cinema_id = @id
+        seance.film_id = @film.id
+        seance.save!
+      end
     end
   end
 end
