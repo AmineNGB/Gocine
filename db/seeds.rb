@@ -61,29 +61,29 @@ cinema_attributes.each do |attr|
 end
 
 
-# favorites_attributes = [
-#   {
-#     user_id: user.id,
-#     film_id: 2,
-#   },
-#   {
-#     user_id: user.id,
-#     film_id: 10,
-#   },
-#    {
-#     user_id: user.id,
-#     film_id: 1,
-#   },
-#    {
-#     user_id: user.id,
-#     film_id: 4,
-#   }
-# ]
-# Favorite.create!(favorites_attributes)
+favorites_attributes = [
+  {
+    user_id: user.id,
+    film_id: 2,
+  },
+  {
+    user_id: user.id,
+    film_id: 10,
+  },
+   {
+    user_id: user.id,
+    film_id: 1,
+  },
+   {
+    user_id: user.id,
+    film_id: 4,
+  }
+]
+Favorite.create!(favorites_attributes)
 
 
-# ap Film.all
+ap Film.all
 
 
-# ap Favorite.all
+ap Favorite.all
 
