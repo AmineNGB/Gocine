@@ -7,7 +7,7 @@ class Cinema < ApplicationRecord
   validates :allocine_id, presence: true, uniqueness: true
 
   def create_movies
-    AllocineMoviesService.new(allocine_id).call
+    AllocineMoviesService.new(allocine_id, id).call
   end
 
 end
