@@ -18,7 +18,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -45,7 +45,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -72,7 +72,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -99,7 +99,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -126,7 +126,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -153,7 +153,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }
@@ -180,7 +180,7 @@ class AllocineMoviesService
         film.synopsis = movie["synopsis"]
         film.allocine_id = movie["internalId"]
         film.photo_url = movie["poster"]["url"]
-        film.date_release = movie["releases"][0]["releaseDate"]["date"]
+        film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         film.rate_viewer = movie["stats"]["userRating"]["score"]
         film.genre = movie["genres"].map { |n| n["translate"] }

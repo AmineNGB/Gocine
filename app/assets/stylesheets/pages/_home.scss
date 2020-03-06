@@ -3,13 +3,13 @@
   display: grid;
   grid-template-columns:1fr 1fr;
   grid-gap: 10px;
-  margin-top: 44px;
+  margin-top: 2rem;
   justify-items:center;
   justify-content:end;
   align-items:center;
   grid-auto-flow:rows;
-  background-color: #dedfe3;
-  padding-bottom: 60px;
+  // background-color: #dedfe3;
+  padding-bottom: 2rem;
 
   }
 
@@ -18,14 +18,17 @@
   width:auto;
   height: auto;
   position: relative;
-
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  border-radius: 15px;
 }
 
 .color{
-  color:#fecc00;
+  color:rgb(100%, 88%, 63%);
   text-align: center;
-  background-color:#08288b;
+  background-color: rgb(82%, 13%, 22%);
   height:auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
   }
 
   .plus-icon{
@@ -38,4 +41,8 @@
     right: 8px;
     opacity: 0.8;
 
+  }
+
+  .affiche-bord {
+    border-radius: 15px;
   }

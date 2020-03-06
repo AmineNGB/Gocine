@@ -1,5 +1,4 @@
-<div class="container">
-  <h1 class="text-center"><strong>Mes Films</strong>  </h1>
+  <h1 class="text-center color mt-4"><strong>Mes Films</strong>  </h1>
 
   <div class="favorites pt-4" id="favorite" data-url="<%= api_draganddrop_path %>">
     <% current_user.favorites.each_with_index do |favorite, index| %>
@@ -12,4 +11,3 @@
     </div>
     <% end %>
   </div>
-</div>

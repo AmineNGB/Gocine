@@ -1,4 +1,4 @@
-<div class="d-flex flex-column">
+<!-- <div class="d-flex flex-column"> -->
   <div class="mt-2 ml-1">
     <%= link_to :back do %>
     <i class="far fa-times-circle"></i>
@@ -24,14 +24,14 @@
   </div>
   <div class=" d-flex bd-highlight">
     <p class="bd-highlight"><strong>Genre:</strong></p>
-    <p class="ml-auto bd-highlight"><%= @film.genre %></p>
+    <p class="ml-auto bd-highlight"><%= @film.genre.join(", ") %></p>
   </div>
   <div class=" d-flex bd-highlight">
     <p class="bd-highlight"><strong>Note presse:</strong></p>
     <p class="ml-auto bd-highlight"><%= @film.rate_press %>/5</p>
   </div>
-  <div class=" d-flex bd-highlight mb-2">
+  <div class=" d-flex bd-highlight">
     <p class="bd-highlight"><strong>Note spéctateur:</strong></p>
     <p class="ml-auto bd-highlight"><%= @film.rate_viewer %>/5</p>
   </div>
-</div>
+<!-- </div> -->
