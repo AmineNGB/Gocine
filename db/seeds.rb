@@ -24,6 +24,22 @@ user2.prenom = 'Nicolas'
 user2.phone = '07xxxxxxxx'
 user2.save!
 
+user3 = User.new
+user3.email = 'toto@gmail.com'
+user3.password = 'password'
+user3.nom = 'Iniesta'
+user3.prenom = 'toto'
+user3.phone = '07xxxxxxxx'
+user3.save!
+
+user4 = User.new
+user4.email = 'titi@gmail.com'
+user4.password = 'password'
+user4.nom = 'Iniesta'
+user4.prenom = 'titi'
+user4.phone = '07xxxxxxxx'
+user4.save!
+
 "Creation des films à l\'affiche"
 
 cinema_attributes = [
