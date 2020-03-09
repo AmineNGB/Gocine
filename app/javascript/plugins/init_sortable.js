@@ -2,22 +2,25 @@ import Sortable from 'sortablejs';
 
 const initSortable = () => {
   const list = document.querySelector('#favorite');
-  // buildData();
-  Sortable.create(list, {
-    ghostClass: "ghost",
-    animation: 150,
-    onEnd: (event) => {
-      // buildData();
-      fetch("/api/draganddrop", {
-        method: "PATCH",
-        headers: {
-          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( buildData() )
-      })
-    }
- });
+
+  if (list) {
+    // buildData();
+    Sortable.create(list, {
+      ghostClass: "ghost",
+      animation: 150,
+      onEnd: (event) => {
+        // buildData();
+        fetch("/api/draganddrop", {
+          method: "PATCH",
+          headers: {
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify( buildData() )
+        })
+      }
+    });
+  }
 };
 
 const buildData = () => {
