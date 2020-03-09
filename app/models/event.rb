@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
-  belongs_to :user
-  belongs_to :film
+  has_many :guests
+  has_many :users, through: :guests
 
-  # validates :film, presence: true
-  validates :user, presence: true
+  enum schedule: [ :matin, :apresmidi, :soir]
 end

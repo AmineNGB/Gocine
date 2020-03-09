@@ -3,6 +3,10 @@ require 'nokogiri'
 require 'awesome_print'
 "Cleaning DataBase"
 User.destroy_all
+Seance.destroy_all
+Favorite.destroy_all
+Cinema.destroy_all
+Event.destroy_all
 
 user = User.new
 user.email = 'amine@gmail.com'
@@ -79,11 +83,24 @@ favorites_attributes = [
     film_id: 4,
   }
 ]
+
 Favorite.create!(favorites_attributes)
 
+events_attributes = [
+  {
+    schedule: :matin,
+    date: DateTime.strptime("15/03/2020", "%d/%m/%Y"),
+    cinema_id: 4,
+  }
+]
 
-ap Film.all
+Event.create!(events_attributes)
 
+Guest.create!(user_id: 1, event_id: 1)
+
+user.friend_request(user2)
+user2.accept_request(user)
 
 ap Favorite.all
 
+ap Event.all
