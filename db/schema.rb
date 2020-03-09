@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_100208) do
+ActiveRecord::Schema.define(version: 2020_03_09_142253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,14 @@ ActiveRecord::Schema.define(version: 2020_03_09_100208) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cinema_id"
     t.bigint "seance_id"
-    t.datetime "schedule"
+    t.integer "schedule"
+    t.date "date"
     t.index ["cinema_id"], name: "index_events_on_cinema_id"
     t.index ["seance_id"], name: "index_events_on_seance_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -70,6 +69,16 @@ ActiveRecord::Schema.define(version: 2020_03_09_100208) do
     t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
   end
 
+  create_table "guests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.string "status", default: "pending"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_guests_on_event_id"
+    t.index ["user_id"], name: "index_guests_on_user_id"
+  end
+
   create_table "seances", force: :cascade do |t|
     t.bigint "cinema_id", null: false
     t.bigint "film_id", null: false
@@ -97,9 +106,10 @@ ActiveRecord::Schema.define(version: 2020_03_09_100208) do
 
   add_foreign_key "events", "cinemas"
   add_foreign_key "events", "seances"
-  add_foreign_key "events", "users"
   add_foreign_key "favorites", "films"
   add_foreign_key "favorites", "users"
+  add_foreign_key "guests", "events"
+  add_foreign_key "guests", "users"
   add_foreign_key "seances", "cinemas"
   add_foreign_key "seances", "films"
 end

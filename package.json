@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "select2": "^4.0.13",
     "sortablejs": "^1.10.2",
     "turbolinks": "^5.2.0"
   },
