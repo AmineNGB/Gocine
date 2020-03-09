@@ -16,7 +16,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-  end
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
+    redirect_to favorites_path
+
+    end
 
   def show
   end
@@ -28,6 +32,6 @@ class FavoritesController < ApplicationController
   end
 
   def set_film
-    @film = Film.find(params[:id])
+    @film = Favorite.find(params[:id])
   end
 end

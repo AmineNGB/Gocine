@@ -7,7 +7,14 @@
         <%= image_tag favorite.film.photo_url, style: "height: 100px; width: 70px;" %>
       </div>
       <p><%= favorite.film.title %></p>
-      <i class="fas fa-bars p-2"></i>
+      <div d-flex justify-content-between>
+      <%= link_to "", favorite_path(favorite),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: "fa fa-trash" %>
+      <i class= "fas fa-bars p-2"></i>
+      </div>
+
     </div>
     <% end %>
   </div>
