@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pages/schedule'
   get 'pages/invitation'
   get 'pages/loading'
+  get 'pages/friends'
+  
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
   resources :films do

@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'acts_as_list'
 
+gem 'has_friendship'
+
 # gem 'rest-client', '~> 1.8'
 gem 'httparty', '~> 0.13.7'
 
