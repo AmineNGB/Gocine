@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/schedule'
   get 'pages/invitation'
+  get 'pages/loading'
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
   resources :films do
