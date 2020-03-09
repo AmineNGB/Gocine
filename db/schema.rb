@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_084749) do
+ActiveRecord::Schema.define(version: 2020_03_09_100208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 2020_03_09_084749) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "schedule"
-    t.string "cinema"
     t.bigint "user_id", null: false
-    t.bigint "film_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["film_id"], name: "index_events_on_film_id"
+    t.bigint "cinema_id"
+    t.bigint "seance_id"
+    t.datetime "schedule"
+    t.index ["cinema_id"], name: "index_events_on_cinema_id"
+    t.index ["seance_id"], name: "index_events_on_seance_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -70,11 +71,11 @@ ActiveRecord::Schema.define(version: 2020_03_09_084749) do
   end
 
   create_table "seances", force: :cascade do |t|
-    t.string "horaire"
     t.bigint "cinema_id", null: false
     t.bigint "film_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "horaire"
     t.index ["cinema_id"], name: "index_seances_on_cinema_id"
     t.index ["film_id"], name: "index_seances_on_film_id"
   end
@@ -94,7 +95,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_084749) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "events", "films"
+  add_foreign_key "events", "cinemas"
+  add_foreign_key "events", "seances"
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "films"
   add_foreign_key "favorites", "users"
