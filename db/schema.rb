@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 2020_03_09_142253) do
     t.string "title"
     t.text "synopsis"
     t.string "duration"
-    t.string "date_release"
     t.string "genre", array: true
     t.float "rate_press"
     t.float "rate_viewer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "allocine_id"
+    t.datetime "date_release"
   end
 
   create_table "friendships", id: :serial, force: :cascade do |t|
