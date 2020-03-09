@@ -117,6 +117,12 @@ Guest.create!(user_id: 1, event_id: 1)
 user.friend_request(user2)
 user2.accept_request(user)
 
+user.friend_request(user3)
+user3.accept_request(user)
+
+user.friend_request(user4)
+user4.accept_request(user)
+
 ap Favorite.all
 
 ap Event.all

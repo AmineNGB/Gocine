@@ -20,6 +20,8 @@ class EventsController < ApplicationController
     else
       render new
     end
+
+    redirect_to root_path
   end
 
   def destroy
