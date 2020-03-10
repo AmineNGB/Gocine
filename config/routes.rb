@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   get 'pages/invitation'
   get 'pages/loading'
   get 'pages/friends'
+<<<<<<< HEAD
+  get 'events/:id/answer', to: 'events#answer', as: 'answer'
+  get 'guests/:id/confirm', to: 'guests#confirm', as: 'confirm'
+  get 'guests/:id/decline', to: 'guests#decline', as: 'decline'
+=======
   get 'pages/final'
+>>>>>>> 4485cdfa8be429de9a5de3ad6fa5c47cce962f62
 
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
