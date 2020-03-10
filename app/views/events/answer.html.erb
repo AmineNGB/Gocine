@@ -1,11 +1,12 @@
+
 <% @event.guests.each do |guest|%>
-<ul>
-  <li>
-    <%= User.find(guest.user_id).prenom %>
+    <div class="favorites pt-4 d-flex align-items-center justify-content-between mb-1">
+      <h3><%= User.find(guest.user_id).prenom %></h3>
     <% if guest.user == current_user %>
-    <%= link_to "Accepter", confirm_path(guest) %>
-    <%= link_to "Refuser", decline_path(guest) %>
+    <%= link_to "Accepter", confirm_path(guest), class: "btn btn-primary mx-4" %>
+    <%= link_to "Refuser", decline_path(guest), class: "btn btn-danger mx-4" %>
+    <% else %>
+    <strong><%= guest.status %></strong>
     <% end %>
-  </li>
-</ul>
+  </div>
 <% end %>

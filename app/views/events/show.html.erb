@@ -1,6 +1,9 @@
-<h1 class=" d-flex justify-content-center mt-2">Votre sortie en cours</h1>
+<h1 class=" d-flex justify-content-center mt-2 color">Votre sortie en cours</h1>
 <p class="d-flex justify-content-center">Tu veux organiser une sortie ciné le <%= @event.date.to_formatted_s(:short) %>, plage horaire:  <%= @event.schedule %></p>
 <div class="d-flex justify-content-center ">
   <p>Previens tes amis sur WhatsApp !</p>
 </div>
-<a href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= @event.date.to_formatted_s(:short) %> (<%= @event.schedule %>) <%= answer_url %>">WhatsApp</a>
+<div class="d-flex justify-content-center">
+<a style="color: rgb(44, 209, 82)" href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= @event.date.to_formatted_s(:short) %> (<%= @event.schedule %>) <%= answer_url %>"><i class="fab fa-whatsapp-square fa-4x"></i></a>
+</div>
+
