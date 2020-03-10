@@ -25,18 +25,18 @@ user2.phone = '07xxxxxxxx'
 user2.save!
 
 user3 = User.new
-user3.email = 'toto@gmail.com'
+user3.email = 'boule@gmail.com'
 user3.password = 'password'
-user3.nom = 'Iniesta'
-user3.prenom = 'toto'
+user3.nom = 'Bou'
+user3.prenom = 'Boule'
 user3.phone = '07xxxxxxxx'
 user3.save!
 
 user4 = User.new
-user4.email = 'titi@gmail.com'
+user4.email = 'jules@gmail.com'
 user4.password = 'password'
-user4.nom = 'Iniesta'
-user4.prenom = 'titi'
+user4.nom = 'Ju'
+user4.prenom = 'Jules'
 user4.phone = '07xxxxxxxx'
 user4.save!
 
@@ -107,12 +107,16 @@ events_attributes = [
     schedule: :matin,
     date: DateTime.strptime("15/03/2020", "%d/%m/%Y"),
     cinema_id: 4,
+    seance_id: 448
   }
 ]
 
 Event.create!(events_attributes)
 
-Guest.create!(user_id: 1, event_id: 1)
+Guest.create!(user_id: 1, event_id: 1, status: "confirmed")
+Guest.create!(user_id: 2, event_id: 1, status: "confirmed")
+Guest.create!(user_id: 3, event_id: 1)
+Guest.create!(user_id: 4, event_id: 1, status: "rejected")
 
 user.friend_request(user2)
 user2.accept_request(user)
@@ -122,6 +126,15 @@ user3.accept_request(user)
 
 user.friend_request(user4)
 user4.accept_request(user)
+
+user2.friend_request(user3)
+user3.accept_request(user2)
+
+user2.friend_request(user4)
+user4.accept_request(user2)
+
+user3.friend_request(user4)
+user4.accept_request(user3)
 
 ap Favorite.all
 
