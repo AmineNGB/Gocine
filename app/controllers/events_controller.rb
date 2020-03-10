@@ -14,8 +14,8 @@ class EventsController < ApplicationController
     @friends = current_user.friends
     @event = Event.new(event_params)
 
-    if @event.save
-      @event.guests.create!(user: current_user, status: 'confirmed')
+    if @event.save!
+      @event.guests.create!(user_id: current_user.id, status: 'confirmed')
       puts "c'est cool"
     else
       render new
