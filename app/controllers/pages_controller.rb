@@ -10,4 +10,9 @@ class PagesController < ApplicationController
 
   def invitation
   end
+
+  def final
+     @event = Event.first
+
+  end
 end
