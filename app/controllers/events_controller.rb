@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -21,7 +22,7 @@ class EventsController < ApplicationController
       render new
     end
 
-    redirect_to root_path
+    redirect_to event_path(@event)
   end
 
   def destroy
