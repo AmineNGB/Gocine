@@ -84,21 +84,70 @@ end
 favorites_attributes = [
   {
     user_id: user.id,
-    film_id: 2,
+    film_id: 7,
   },
   {
     user_id: user.id,
-    film_id: 10,
+    film_id: 14,
   },
    {
     user_id: user.id,
-    film_id: 1,
+    film_id: 3,
   },
    {
     user_id: user.id,
     film_id: 4,
-  }
+  },
+  {
+    user_id: user2.id,
+    film_id: 7,
+  },
+  {
+    user_id: user2.id,
+    film_id: 10,
+  },
+   {
+    user_id: user2.id,
+    film_id: 3,
+  },
+   {
+    user_id: user2.id,
+    film_id: 4,
+  },
+  {
+    user_id: user3.id,
+    film_id: 2,
+  },
+  {
+    user_id: user3.id,
+    film_id: 11,
+  },
+   {
+    user_id: user3.id,
+    film_id: 3,
+  },
+   {
+    user_id: user3.id,
+    film_id: 4,
+  },
+  {
+    user_id: user4.id,
+    film_id: 5,
+  },
+  {
+    user_id: user4.id,
+    film_id: 11,
+  },
+   {
+    user_id: user4.id,
+    film_id: 1,
+  },
+   {
+    user_id: user4.id,
+    film_id: 4,
+  },
 ]
+
 
 Favorite.create!(favorites_attributes)
 
@@ -113,10 +162,10 @@ events_attributes = [
 
 Event.create!(events_attributes)
 
-Guest.create!(user_id: 1, event_id: 1, status: "confirmed")
-Guest.create!(user_id: 2, event_id: 1, status: "confirmed")
-Guest.create!(user_id: 3, event_id: 1)
-Guest.create!(user_id: 4, event_id: 1, status: "rejected")
+Guest.create!(user_id: 1, event_id: 1, status: 1)
+Guest.create!(user_id: 2, event_id: 1, status: 1)
+Guest.create!(user_id: 3, event_id: 1, status: 0)
+Guest.create!(user_id: 4, event_id: 1, status: 2)
 
 user.friend_request(user2)
 user2.accept_request(user)

@@ -20,7 +20,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -28,6 +28,7 @@ class AllocineMoviesService
       hash["showtimes"]["multiple"].each do |hash2|
         seance = Seance.new
         seance.horaire = hash2["startsAt"]
+        seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"]
         seance.cinema_id = @id
         seance.film_id = @film.id
         seance.save!
@@ -47,7 +48,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -74,7 +75,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -101,7 +102,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -128,7 +129,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -155,7 +156,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
@@ -182,7 +183,7 @@ class AllocineMoviesService
         film.photo_url = movie["poster"]["url"]
         film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
         film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
-        film.rate_viewer = movie["stats"]["userRating"]["score"]
+        film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
         film.genre = movie["genres"].map { |n| n["translate"] }
         film.save
       end
