@@ -1,11 +1,14 @@
+<div class="forms">
+  <%= simple_form_for(@event) do |f| %>
 
+    <%= f.input :date,as: :date, html5: true, order: [:day, :month, :year], label: "Choisis le jour de ta sortie :" %>
 
-<%= simple_form_for(@event) do |f| %>
-  <%= f.input :date %>
-  <%= f.input :schedule, collection: [[:matin, 'matin'], [:apresmidi, 'apresmidi'], [:soir, 'soir']], as: :radio_buttons %>
-  <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id) %>
+    <%= f.input :schedule, collection: [['Matin', :matin], ['Après-midi', :apresmidi], ['Soir', :soir]], as: :radio_buttons, label: "Choisis ta plage horaire:", id: "test2" %>
 
-  <%= f.input :user_ids, as: :select, collection: current_user.friends, input_html: { multiple: true } %>
+    <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), label: "Choisis ton cinema:"%>
 
-  <%= f.submit "add a date", class: 'btn btn-primary' %>
-<% end %>
+    <%= f.input :user_ids, as: :select, collection: current_user.friends, input_html: { multiple: true }, label: "Choisis tes amis:" %>
+
+    <%= f.submit "Créer cet événement !", class: 'btn btn-primary' %>
+  <% end %>
+</div>
