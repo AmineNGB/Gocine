@@ -3,5 +3,4 @@
 <div class="d-flex justify-content-center ">
   <p>Previens tes amis sur WhatsApp !</p>
 </div>
-  <a href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= @event.date.to_formatted_s(:short) %> (<%= @event.schedule %>)? OUI: lien / NON: lien">WhatsApp</a>
-
+<a href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= @event.date.to_formatted_s(:short) %> (<%= @event.schedule %>) <%= answer_url %>">WhatsApp</a>

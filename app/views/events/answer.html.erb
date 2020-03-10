@@ -1,0 +1,11 @@
+<% @event.guests.each do |guest|%>
+<ul>
+  <li>
+    <%= User.find(guest.user_id).prenom %>
+    <% if guest.user == current_user %>
+    <%= link_to "Accepter", confirm_path(guest) %>
+    <%= link_to "Refuser", decline_path(guest) %>
+    <% end %>
+  </li>
+</ul>
+<% end %>

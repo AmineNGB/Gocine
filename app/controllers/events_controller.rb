@@ -33,6 +33,10 @@ class EventsController < ApplicationController
     MovieMatcher.new(@event).find_best_seance
   end
 
+  def answer
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def event_params

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'pages/invitation'
   get 'pages/loading'
   get 'pages/friends'
-  
+  get 'events/:id/answer', to: 'events#answer', as: 'answer'
+  get 'guests/:id/confirm', to: 'guests#confirm', as: 'confirm'
+  get 'guests/:id/decline', to: 'guests#decline', as: 'decline'
+
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
   resources :films do
