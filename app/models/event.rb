@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_many :guests
   has_many :users, through: :guests
-  has_one :seance
+  belongs_to :seance
   has_one :film, through: :seance
   accepts_nested_attributes_for :guests
 
