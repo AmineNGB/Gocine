@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_142253) do
+ActiveRecord::Schema.define(version: 2020_03_10_143743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_142253) do
   create_table "guests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
-    t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["event_id"], name: "index_guests_on_event_id"
     t.index ["user_id"], name: "index_guests_on_user_id"
   end
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_142253) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "horaire"
+    t.string "link"
     t.index ["cinema_id"], name: "index_seances_on_cinema_id"
     t.index ["film_id"], name: "index_seances_on_film_id"
   end
