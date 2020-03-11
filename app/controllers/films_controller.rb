@@ -24,5 +24,4 @@ class FilmsController < ApplicationController
   def set_film
     @film = Film.find(params[:id])
   end
-
 end
