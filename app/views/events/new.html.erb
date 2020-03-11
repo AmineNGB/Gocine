@@ -3,7 +3,7 @@
 
     <%= f.input :date,as: :date, html5: true, order: [:day, :month, :year], label: "Choisis le jour de ta sortie :" %>
 
-    <%= f.input :schedule, collection: [['Matin', :matin], ['Après-midi', :apresmidi], ['Soir', :soir]], as: :radio_buttons, label: "Choisis ta plage horaire:", id: "test2" %>
+    <%= f.input :schedule, class: "radio-horaire", collection: [['Matin', :matin], ['Après-midi', :apresmidi], ['Soir', :soir]], as: :radio_buttons, label: "Choisis ta plage horaire:"%>
 
     <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), label: "Choisis ton cinema:"%>
 

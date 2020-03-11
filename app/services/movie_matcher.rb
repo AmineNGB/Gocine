@@ -23,9 +23,9 @@ class MovieMatcher
       # binding.pry
       movies.each_with_index do |movie, i|
         note = 6 - i
-        ap note
+        # ap note
         @score[movie.id] += note
-        ap @score
+        # ap @score
       end
     end
   end

@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   get 'pages/loading'
   get 'pages/friends'
   get 'events/:id/answer', to: 'events#answer', as: 'answer'
+  get 'events/:id/final', to: 'events#final', as: 'final'
   get 'guests/:id/confirm', to: 'guests#confirm', as: 'confirm'
   get 'guests/:id/decline', to: 'guests#decline', as: 'decline'
-    get 'pages/final'
+  get 'events/:id/result', to: 'events#result', as: 'result'
 
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]

@@ -1,0 +1,24 @@
+<% if @event.seance.present? %>
+<div id="center">
+  <%=image_tag "rideauu.jpg", class: "size"%>
+  <div id="lock">
+    <h1 id="zest"><strong>Votre soirée</strong></h1>
+    <%= image_tag (@event.seance.film.photo_url), class: "tof", size:"180x240" %>
+    <div class="info" >
+      <p><strong><%= Cinema.find(@event.cinema_id).name %></strong></p>
+      <p><strong><%= Seance.find(@event.seance_id).horaire.time.to_formatted_s(:short) %></strong></p>
+      <% @event.users.each do |user|%>
+      <div class="d-flex justify-content-center font-weight-bold">
+        <%= user.nom %>
+        <%= user.prenom %>
+      </div>
+      <%end%>
+    </div>
+    <h3>Bon Film !</h3>
+  </div>
+</div>
+<% else %>
+<div class="d-flex flex-column justify-content-center text-center mt-4" id="loading">
+</div>
+<h3 class="d-flex justify-content-center text-center mt-4">Veuillez patientez, nous choisisons le film selon vos préférences ...</h3>
+<% end %>
