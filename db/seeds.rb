@@ -43,11 +43,11 @@ user4.save!
 "Creation des films à l\'affiche"
 
 cinema_attributes = [
-  {
-    name: 'Les Amphis',
-    ville: 'Vaulx-en-Velin',
-    allocine_id: 'P0013'
-  },
+  # {
+  #   name: 'Les Amphis',
+  #   ville: 'Vaulx-en-Velin',
+  #   allocine_id: 'P0013'
+  # },
   {
     name: 'Pathé Lyon - Bellecour',
     ville: 'Lyon',
