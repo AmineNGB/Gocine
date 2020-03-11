@@ -1,0 +1,5 @@
+meta_product_name: "Gociné"
+meta_title: "GoCiné - Organisez une sortie au ciné de manière simple et efficace !"
+meta_description: "Gociné est un service permettant d'organiser une sortie au cinéma entre amis, sans se soucier du choix du film ou de la séance"
+meta_image: "banner.jpg" # should exist in `app/assets/images/`
+twitter_account: "@toto"   # required for Twitter Cards
