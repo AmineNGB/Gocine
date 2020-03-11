@@ -25,6 +25,7 @@ gem 'has_friendship'
 gem 'select2-rails'
 # gem 'rest-client', '~> 1.8'
 gem 'httparty', '~> 0.13.7'
+gem 'rails-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
