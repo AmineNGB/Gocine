@@ -28,7 +28,7 @@ class AllocineMoviesService
       hash["showtimes"]["multiple"].each do |hash2|
         seance = Seance.new
         seance.horaire = hash2["startsAt"]
-        # seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"]
+        seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"]
         seance.cinema_id = @id
         seance.film_id = @film.id
         seance.save!
