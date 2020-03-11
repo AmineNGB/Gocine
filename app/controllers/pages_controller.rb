@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def final
      @event = Event.first
+     @date = Seance.find(Event.last.cinema_id).horaire.time
 
   end
 end

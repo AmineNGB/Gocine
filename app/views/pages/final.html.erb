@@ -4,9 +4,9 @@
       <h1 id="zest"><strong>Votre soirée</strong></h1>
         <%= image_tag (@event.seance.film.photo_url), class: "tof", size:"180x240" %>
         <div class="info" >
-      <p><strong><%= Cinema.find(Event.first.cinema_id).name %></strong></p>
-      <p><strong><%= Seance.find(Event.first.cinema_id).horaire.time.to_formatted_s(:short) %></strong></p>
-      <% Event.first.users.each do |user|%>
+      <p><strong><%= Cinema.find(Event.last.cinema_id).name %></strong></p>
+      <p><strong><%= I18n.l(@date, format: :long, locale: :'fr') %></strong></p>
+      <% Event.last.users.each do |user|%>
         <div class="d-flex justify-content-center font-weight-bold">
       <%= user.nom %>
       <%= user.prenom %>
