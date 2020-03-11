@@ -1,7 +1,9 @@
 .navbar-lewagon {
+  position: relative;
   justify-content: space-between;
   background: white;
   box-shadow: 0px 1px 8px 1px rgba(100, 100, 100, .1);
+  margin-bottom: 1rem;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,13 +14,30 @@
   width: 50px;
 }
 
-.navbar-lewagon .navbar-plus img {
-  width: 45px;
-  margin-left: 30vw;
-}
+// .navbar-lewagon .navbar-plus img {
+//   width: 45px;
+//   margin-left: 30vw;
+// }
 
 .navbar-lewagon .navbar-clip img {
-  width: 45px;
+  width: 40px;
+  margin-right: 0.5rem;
+  // position: absolute;
+
+
+}
+
+.nav-btn {
+  // justify-content: space-between;
+  display: flex;
+  // width: 45px;
+  // position: absolute;
+  // right: 4rem;
+  align-items: center;
+  // margin-right: 3rem;
+  height: auto;
+
+
 }
 
 .navbar-toggler {
@@ -47,4 +66,9 @@
   position: absolute;
   bottom: -9px;
   right: 3px;
+}
+
+.nav-link {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
