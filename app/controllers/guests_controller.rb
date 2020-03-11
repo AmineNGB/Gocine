@@ -1,7 +1,10 @@
 class GuestsController < ApplicationController
 
   def decline
-    current_user.status = "rejected"
+    guest = Guest.find(params[:id])
+    if guest.user == current_user
+      guest.rejected!
+    end
   end
 
   def confirm

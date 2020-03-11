@@ -6,17 +6,19 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+  .radio-horaire {
+    display: inline-block;
+    padding-right: 15px;
+    background-color: rgba(209, 34, 55, 1);
+    margin: 5px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: white;
+      }
 }
 
-.form-check {
-  display: inline-block;
-  padding-right: 15px;
-  background-color: rgba(209, 34, 55, 1);
-  margin: 5px;
-  padding: 15px 15px;
-  border-radius: 5px;
-  color: white;
-}
+
+
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -38,7 +40,7 @@
 [type="radio"]:not(:checked) + label:before {
     content: '';
     position: absolute;
-    left: -10px;
+    left: -7px;
     top: 0;
     width: 18px;
     height: 18px;
@@ -54,7 +56,7 @@
     background: rgba(209, 34, 55, 1);
     position: absolute;
     top: 3px;
-    left: -7px;
+    left: -4px;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;

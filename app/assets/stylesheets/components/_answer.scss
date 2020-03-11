@@ -1,0 +1,22 @@
+.answer-card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 120px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px rgba(black, 0.25);
+  justify-content: space-between;
+
+  #confirmed {
+   color: green;
+   margin-top: -10px;
+  }
+
+  #pending {
+    color: black;
+    margin-top: -10px;
+  }
+}
