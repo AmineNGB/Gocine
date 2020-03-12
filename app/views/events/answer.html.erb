@@ -8,7 +8,7 @@
   <% elsif guest.user == current_user %>
   <div class="d-flex align-items-center">
     <%= link_to "Accepter", final_path(@event), class: "btn btn-primary mr-2"%>
-    <%= link_to "Refuser", decline_path(@event), class: "btn btn-danger "%>
+    <%= link_to "Refuser", root_path(@event), class: "btn btn-danger "%>
   </div>
   <% else %>
   <i id="pending" class="far fa-clock fa-3x d-flex align-items-center"></i>

@@ -17,7 +17,6 @@ class EventsController < ApplicationController
 
     if @event.save!
       @event.guests.create!(user_id: current_user.id, status: 'confirmed')
-      puts "c'est cool"
     else
       render new
     end
@@ -30,13 +29,9 @@ class EventsController < ApplicationController
 
   def result
     @event = Event.find(params[:id])
-    # ap "event"
-    # ap @event
     seance = MovieMatcher.new(@event).find_best_seance
-    # ap seance
     @event.seance = seance
     @event.save!
-    # ap @event
     redirect_to final_path
   end
 
@@ -47,7 +42,7 @@ class EventsController < ApplicationController
   def final
     @event = Event.find(params[:id])
     guest = @event.guests.find_by(user: current_user)
-    # guest.confirmed!
+    guest.confirmed!
   end
 
   private
