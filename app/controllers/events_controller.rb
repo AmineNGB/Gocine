@@ -15,13 +15,14 @@ class EventsController < ApplicationController
     @friends = current_user.friends
     @event = Event.new(event_params)
 
-    if @event.save!
-      @event.guests.create!(user_id: current_user.id, status: 'confirmed')
-    else
-      render new
-    end
+    @event.save
 
-    redirect_to event_path(@event)
+    if @event.save
+      @event.guests.create!(user_id: current_user.id, status: 'confirmed')
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   def destroy

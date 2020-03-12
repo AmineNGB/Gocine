@@ -5,6 +5,7 @@ fr:
       long: "%e %B %Y"
       short: "%e %b"
       long2: "%A %d %B %Y %Hh%M"
+      toto: "%d %B %Y"
 
   time:
     am: am
