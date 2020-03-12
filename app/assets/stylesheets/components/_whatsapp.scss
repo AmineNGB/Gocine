@@ -1,0 +1,14 @@
+.whatsapp {
+  background-image: url('whatsapp.gif');
+  height: 55vh;
+  background-position: center;
+  box-shadow: 1px 1px 5px rgba(black, 0.3);
+  position: relative;
+
+  a {
+    position: absolute;
+    right: 25%;
+    bottom: 68%;
+    opacity: 0;
+  }
+}
