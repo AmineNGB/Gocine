@@ -1,20 +1,26 @@
 <% if @event.seance.present? %>
-<div id="center">
-  <%=image_tag "rideauu.jpg", class: "size"%>
+<div id="center" class="mb-2">
+  <!-- <%=image_tag "rideau.png", class: "size"%> -->
   <div id="lock">
-    <h1 id="zest"><strong>Votre soirée</strong></h1>
-    <%= image_tag (@event.seance.film.photo_url), class: "tof", size:"180x240" %>
-    <div class="info" >
+    <h1 class="color"><strong>Votre soirée</strong></h1>
+    <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
+    <div class="info enter-in" >
+      <h4>Cinéma :</h4>
       <p><strong><%= Cinema.find(@event.cinema_id).name %></strong></p>
+      <h4>Horaire :</h4>
       <p><strong><%= Seance.find(@event.seance_id).horaire.time.to_formatted_s(:short) %></strong></p>
-      <% @event.users.each do |user|%>
+      <!-- <a><%= Seance.find(@event.seance_id).link %></a> -->
+      <h4>Participants :</h4>
+      <% @event.guests.confirmed.each do |guest|%>
+      <% user = guest.user %>
       <div class="d-flex justify-content-center font-weight-bold">
         <%= user.nom %>
         <%= user.prenom %>
       </div>
       <%end%>
+      <a class="btn btn-dark mt-4" href="<%= Seance.find(@event.seance_id).link %>">Réservez ici !</a>
     </div>
-    <h3>Bon Film !</h3>
+    <!-- <h3>Bon Film !</h3> -->
   </div>
 </div>
 <% else %>
