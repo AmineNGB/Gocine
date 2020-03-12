@@ -1,6 +1,11 @@
 require 'open-uri'
 require 'nokogiri'
 require 'awesome_print'
+
+# cinemas = Cinema.all
+# cinemas.each do |cinema|
+# cinema.create_movies
+# end
 "Cleaning DataBase"
 User.destroy_all
 Seance.destroy_all
@@ -49,22 +54,22 @@ cinema_attributes = [
   #   allocine_id: 'P0013'
   # },
   {
-    name: 'Pathé Lyon - Bellecour',
+    name: 'Pathé - Bellecour',
     ville: 'Lyon',
     allocine_id: 'P0012'
   },
   {
-    name: 'UGC Ciné Cité Internationale',
+    name: 'UGC Ciné Cité',
     ville: 'Lyon',
     allocine_id: 'P0671'
   },
   {
-    name: 'Pathé Lyon - Vaise',
+    name: 'Pathé - Vaise',
     ville: 'Lyon',
     allocine_id: 'P6909'
   },
   {
-    name: 'Pathé Lyon - Multiplexe Carré de Soie IMAX',
+    name: 'Pathé - Carré de Soie',
     ville: 'Vaulx-en-Velin',
     allocine_id: 'P8507'
   },
