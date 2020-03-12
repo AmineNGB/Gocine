@@ -20,9 +20,13 @@ class MovieMatcher
   attr_reader :event
 
   def calculate_scores
-    users = @event.users
-    ap "Event calcul"
-    ap @event
+    guests = @event.guests.confirmed
+    users = []
+    guests.each do |guest|
+      users << guest.user
+    end
+    # ap "Event calcul"
+    # ap @event
     users.each do |user|
       movies = user.favorites.where(film_id: event.good_movies.pluck(:film_id))
       # binding.pry

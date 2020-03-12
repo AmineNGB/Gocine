@@ -1,52 +1,52 @@
-.size{
-
-width: 360px;
-height: 660px;
-margin: 0 ;
-
-}
+// .size {
+//   width: 100vw;
+//   height: 100vh;
+//   margin: 0;
+// }
 #loading {
   height: 200px;
-  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), image_url("loading.gif");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), image_url("loading.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 1px 1px 5px rgba(black, 0.25)
+  box-shadow: 1px 1px 5px rgba(black, 0.25);
 }
 
-
-#center{
-  position:relative;
+#center {
+  position: relative;
   text-align: center;
 }
 
-#zest{
+#zest {
   font-weight: bold;
   color: #c60001;
-
 }
 
-#lock{
-  position:absolute;
-  top:60px;
-  left: 80px;
+#lock {
+  // position: absolute;
+  background-image: url(asset_path("rideau.png"));
+  background-size: contain;
+  background-repeat: no-repeat;
+  // top: 60px;
+  // left: 80px;
 }
 
-.info{
-
+.info {
   margin-top: 20px;
-  background-color: #ffe0a1;
-  text-align:center
-
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(black, 0.3);
+  padding: 1rem;
+  color: black;
+  border-radius: 5px;
 }
 
-.blaze{
+.blaze {
   font-weight: bold;
 }
 
-#lock h3{
+#lock h3 {
   margin-top: 25px;
   font-weight: bold;
   color: #c60001;
-
 }

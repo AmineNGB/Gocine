@@ -7,3 +7,37 @@
   display: block;
   margin: 0 auto;
 }
+
+.affiche-finale {
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(black, 0.3);
+  width: 55vw;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes zoomIn { from { transform: scale(0.01); } to { transform: scale(1); } }
+
+.fade-in {
+    transform: scale(0);  /* make things invisible upon start */
+    animation:zoomIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+
+    animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+
+    animation-duration:1s;
+    animation-delay: 0.3s
+}
+
+@keyframes enterIn { from { transform: translate(0, 150%); } to { transform: translate(0, 0); } }
+
+.enter-in {
+    transform: translate(0, 150%);  /* make things invisible upon start */
+    animation:enterIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+
+    animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+
+    animation-duration:1s;
+    animation-delay: 0.3s
+}

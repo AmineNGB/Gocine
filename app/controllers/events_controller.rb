@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     seance = MovieMatcher.new(@event).find_best_seance
     @event.seance = seance
     @event.save!
+    @seance = Seance.find(@event.seance_id)
     redirect_to final_path
   end
 
