@@ -4,6 +4,7 @@ fr:
       default: "%d/%m/%Y"
       long: "%e %B %Y"
       short: "%e %b"
+      toto: "%d %B %Y"
   time:
     am: am
     formats:

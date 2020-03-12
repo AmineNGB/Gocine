@@ -7,13 +7,14 @@ class Event < ApplicationRecord
 
   enum schedule: [ :matin, :apresmidi, :soir]
 
+  validates :date, presence: true
+  validates :schedule, presence: true
+  validates :cinema_id, presence: true
+
   def good_movies
     Seance.where(horaire: hours_range, cinema_id: cinema_id)
   end
 
-  # def good_movies_id
-  #   good_movies.pluck(:id)
-  # end
 
   def hours_range
     if matin?

@@ -1,13 +1,10 @@
-<h1 class=" d-flex justify-content-center mt-4 color">Invite tes amis</h1>
-
-<div class="d-flex justify-content-center mt-4 ">
-  <p><strong>Previens tes amis sur WhatsApp !</strong></p>
+<h1 class=" d-flex justify-content-center mt-4 color">Partage à tes amis</h1>
+  <div class="d-flex justify-content-around align-items-center mt-4 whatsapp">
+    <i style="color: #3B569D" class="fab fa-facebook-square fa-4x"></i>
+    <i style="color: #1DA0F2" class="fab fa-twitter-square fa-4x"></i>
+    <a style="color: rgb(44, 209, 82)" href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= l(@event.date, format: :toto, locale: :fr)  %> (<%= @event.schedule %>), répond sur le site: <%= answer_url %>                                              N'oublie pas de mettre à jour ta liste de favories sur :<%= favorites_url %>"><i class="fab fa-whatsapp-square fa-4x"></i></a>
+  </div>
 </div>
-
-<div class="d-flex justify-content-center mt-4">
-  <a style="color: rgb(44, 209, 82)" href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= @event.date.to_formatted_s(:short) %> (<%= @event.schedule %>) <%= answer_url %>"><i class="fab fa-whatsapp-square fa-4x"></i></a>
-</div>
-
 <div class="d-flex justify-content-center mt-4">
   <%= link_to "Suivant", answer_path, class: "btn btn-secondary" %>
 </div>
