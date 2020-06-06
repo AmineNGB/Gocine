@@ -12,7 +12,7 @@ Seance.destroy_all
 Favorite.destroy_all
 Cinema.destroy_all
 Event.destroy_all
-
+"User in progress ..."
 user = User.new
 user.email = 'amine@gmail.com'
 user.password = 'password'
@@ -164,7 +164,7 @@ events_attributes = [
     seance_id: 448
   }
 ]
-
+"creation evenements"
 Event.create!(events_attributes)
 
 Guest.create!(user_id: 1, event_id: 1, status: 1)
