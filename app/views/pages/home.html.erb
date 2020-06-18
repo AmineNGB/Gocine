@@ -6,8 +6,8 @@
   <div class="carte_a">
     <%= link_to film_path(film) do %>
     <%= image_tag film.photo_url,size:"160x200", class: "affiche-bord" %>
-    <%= link_to film_favorites_path(film.id), class: "plus-icon", method: :post do %>
-    <i class="fas fa-plus-square fa-3x"></i>
+    <%= link_to film_favorites_path(film.id), class: "plus-icon", method: :post, remote: true do %>
+    <i id="movie-icon" class="fas fa-plus-square fa-3x"></i>
     <% end %>
     <% end %>
   </div>
