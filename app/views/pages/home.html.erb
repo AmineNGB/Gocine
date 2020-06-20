@@ -3,11 +3,11 @@
 </div>
 <div id="main">
   <% @films.each do |film|%>
-  <div class="carte_a">
+  <div class="movie-card">
     <%= link_to film_path(film) do %>
     <%= image_tag film.photo_url,size:"160x200", class: "affiche-bord" %>
     <%= link_to film_favorites_path(film.id), class: "plus-icon", method: :post, remote: true do %>
-    <i id="movie-icon" class="fas fa-plus-square fa-3x"></i>
+    <i class="fas fa-plus-square fa-3x"></i>
     <% end %>
     <% end %>
   </div>

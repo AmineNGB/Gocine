@@ -9,11 +9,11 @@ import { initSelect2 } from '../plugins/init_select2';
 initSelect2();
 initSortable();
 
+console.log("je suis la");
 
-const icon = document.querySelector('#movie-icon');
-
-icon.addEventListener("click", () => {
-    icon.classList.replace("fas fa-plus-square fa-3x", "fas fa-plus-minus fa-3x") 
-})
-// il semblerait que le script ne passe pas a verifier
-
+document.querySelectorAll("i").forEach((plus) => {
+    plus.addEventListener("click", (event) => {
+      event.currentTarget.classList.replace("fa-plus-square", "fa-minus-square");
+    });
+  });
+// je replace juste le plus en minus ce qui permet de voir sur si on a déjà ajouter le film
