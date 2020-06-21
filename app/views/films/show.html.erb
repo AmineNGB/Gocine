@@ -18,10 +18,17 @@
   <p class="bd-highlight"><strong>Durée:</strong></p>
   <p class="ml-auto bd-highlight"><%= @film.duration %></p>
 </div>
-<div class=" d-flex bd-highlight">
-  <p class="bd-highlight"><strong>Date de sortie:</strong></p>
-  <p class="ml-auto bd-highlight"><%= l(@film.date_release, format: :toto, locale: :fr) %></p>
-</div>
+<% if @film.date_release %>
+  <div class=" d-flex bd-highlight">
+    <p class="bd-highlight"><strong>Date de sortie:</strong></p>
+    <p class="ml-auto bd-highlight"><%= l(@film.date_release, format: :toto, locale: :fr) %></p>
+  </div>
+  <% else %>
+  <div class=" d-flex bd-highlight">
+    <p class="bd-highlight"><strong>Date de sortie:</strong></p>
+    <p class="ml-auto bd-highlight">Pas de date disponible</p>
+  </div>
+<% end %>
 <div class=" d-flex bd-highlight">
   <p class="bd-highlight"><strong>Genre:</strong></p>
   <p class="ml-auto bd-highlight"><%= @film.genre.join(", ") %></p>

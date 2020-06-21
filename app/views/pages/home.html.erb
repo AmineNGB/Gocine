@@ -1,15 +1,23 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
+
 <div id="main">
   <% @films.each do |film|%>
-  <div class="movie-card">
-    <%= link_to film_path(film) do %>
-    <%= image_tag film.photo_url,size:"160x200", class: "affiche-bord" %>
-    <%= link_to film_favorites_path(film.id), class: "plus-icon", method: :post, remote: true do %>
-    <i class="fas fa-plus-square fa-3x"></i>
-    <% end %>
-    <% end %>
-  </div>
-  <%end%>
+    <div class="movie-card">
+      <%= link_to film_path(film) do %>
+      <%= image_tag film.photo_url,size:"160x200", class: "affiche-bord" %>
+      <% @favorites.each do |favorite|%>
+        <% if film.id != favorite.film_id %>
+          <%= link_to film_favorites_path(film.id),
+                class: "plus-icon",
+                method: :post,
+                remote: true do %>
+                <i class="fas fa-plus-square fa-3x"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
   resources :films do
-    resources :favorites, only: [:new, :create]
+    resources :favorites, only: [:new, :create, :destroy]
   end
   resources :favorites, only: [:index, :destroy]
 
