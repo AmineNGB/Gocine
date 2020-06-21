@@ -1,4 +1,9 @@
   <h1 class="text-center color">Mes Films</h1>
+  <% if current_user.favorites.count < 3 %>
+  <div class="alert-film" role="alert">
+    <strong>Attention !</strong> Votre liste de film n'est pas assez fournie pour organiser une sortie. ( Minimum 3 films )
+  </div>
+  <% end %>
 
   <div class="favorites pt-4" id="favorite" data-url="<%= api_draganddrop_path %>">
     <% current_user.favorites.each_with_index do |favorite, index| %>
@@ -9,8 +14,8 @@
       <p><%= favorite.film.title %></p>
       <div d-flex justify-content-between>
       <%= link_to "", favorite_path(favorite),
-                method: :delete,
-                class: "fa fa-trash" %>
+                  method: :delete,
+                  class: "fa fa-trash" %>
       <i class= "fas fa-bars p-2"></i>
       </div>
 

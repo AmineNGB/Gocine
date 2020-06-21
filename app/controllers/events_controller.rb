@@ -8,6 +8,10 @@ class EventsController < ApplicationController
   end
 
   def new
+    if current_user.favorites.count < 3
+      flash[:alert] = "Vous devez avoir au moins 3 films dans votre liste"
+      redirect_to favorites_path
+    end
     @event = Event.new
   end
 
@@ -18,7 +22,7 @@ class EventsController < ApplicationController
     @event.save
 
     if @event.save
-      @event.guests.create!(user_id: current_user.id, status: 'confirmed')
+      @event.guests.create!(user_id: current_user.id, status: "confirmed")
       redirect_to event_path(@event)
     else
       render :new
