@@ -1,7 +1,6 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
-
 <div id="main">
   <% @films.each do |film|%>
     <div class="movie-card">
@@ -12,9 +11,10 @@
           <%= link_to film_favorites_path(film.id),
                   class: "plus-icon",
                   method: :post,
+                  alert: "OK",
                   remote: true do %>
-                  <i class="fas fa-plus-square fa-3x"></i>
-            <% end %>
+            <i class="fas fa-plus-square fa-3x"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>

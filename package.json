@@ -1,5 +1,5 @@
 {
-  "name": "Gocine",
+  "name": "gocine",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
