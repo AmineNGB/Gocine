@@ -3,8 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @favorites = []
-    current_user.films.each do |fav|
-      @favorites << fav.id
+    if current_user
+      current_user.films.each do |fav|
+        @favorites << fav.id
+      end
     end
     @films = Film.all
   end
@@ -16,8 +18,7 @@ class PagesController < ApplicationController
   end
 
   def final
-     @event = Event.first
-     @date = Seance.find(Event.last.cinema_id).horaire.time
-
+    @event = Event.first
+    @date = Seance.find(Event.last.cinema_id).horaire.time
   end
 end
