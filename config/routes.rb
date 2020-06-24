@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   # get 'users/profile' , as: :profile
   devise_for :users
-  get 'pages/schedule'
-  get 'pages/invitation'
-  get 'pages/loading'
-  get 'pages/friends'
-  get 'events/:id/answer', to: 'events#answer', as: 'answer'
-  get 'events/:id/final', to: 'events#final', as: 'final'
-  get 'guests/:id/confirm', to: 'guests#confirm', as: 'confirm'
-  get 'guests/:id/decline', to: 'guests#decline', as: 'decline'
-  get 'events/:id/result', to: 'events#result', as: 'result'
+  get "pages/schedule"
+  get "pages/invitation"
+  get "pages/loading"
+  get "pages/friends"
+  delete "pages/friends/:id", to: "users#delete_friend", as: "delete_friend"
+  get "events/:id/answer", to: "events#answer", as: "answer"
+  get "events/:id/final", to: "events#final", as: "final"
+  get "guests/:id/confirm", to: "guests#confirm", as: "confirm"
+  get "guests/:id/decline", to: "guests#decline", as: "decline"
+  get "events/:id/result", to: "events#result", as: "result"
 
   resources :events, only: [:show, :new, :create, :destroy]
   resources :films, only: [:show, :new, :create, :index]
@@ -18,12 +19,11 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:index, :destroy]
 
-  resources :reviews, only: [ :show, :edit, :update, :destroy ]
-  root to: 'pages#home'
+  resources :reviews, only: [:show, :edit, :update, :destroy]
+  root to: "pages#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api do
-    patch 'draganddrop', to: 'favorites#sort'
+    patch "draganddrop", to: "favorites#sort"
   end
 end
-
