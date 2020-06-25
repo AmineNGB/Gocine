@@ -1,13 +1,38 @@
-<h1 class="text-center color"><strong>Mes Amis</strong> </h1>
+<h1 class="text-center color"><strong>Mes Amis</strong></h1>
 <ul class="list-group friends-list">
-  <% current_user.friends.each do |friend| %>
-    <li class="list-group-item friend-line"> <%=friend.prenom + " " + friend.nom %>
-      <div>
-        <%= link_to "", delete_friend_path(friend.id),
-                    method: :delete,
-                    data: { confirm: "Es tu sur de vouloir supprimer #{friend.prenom} de tes amis ?" },
-                    class: "fa fa-trash" %>
-      </div>
-    </li>
+  <h3>Amis</h3>
+  <% @friends.each do |friend| %>
+  <li class="list-group-item friend-line">
+    <%=friend.prenom + " " + friend.nom %>
+    <div>
+      <%= link_to "", delete_friend_path(friend.id),
+      data: { confirm: "Es tu sur de vouloir supprimer #{friend.prenom} de tes amis ?" },
+      class: "fa fa-trash" %>
+    </div>
+  </li>
   <% end %>
 </ul>
+<br />
+<ul class="list-group friends-list">
+  <h3>En attente</h3>
+  <% @friend_requests.each do |friend| %>
+  <li class="list-group-item friend-line">
+    <%=friend.prenom + " " + friend.nom %>
+    <div class="d-flex">
+      <div>
+        <%= link_to "", accept_friend_path(friend.id), class: "fa fa-cross " %>
+      </div>
+      <div>
+        <%= link_to "", decline_friend_path(friend.id), class: "fa fa-square
+        ml-2" %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_with(url: request_friend_path, method: "get") do %>
+  <%= label_tag(:email, "Search for:") %>
+  <%= text_field_tag(:email) %>
+  <%= submit_tag("Search") %>
+<% end %>

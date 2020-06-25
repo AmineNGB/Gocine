@@ -180,6 +180,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rufo (0.12.0)
     sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -252,6 +253,7 @@ DEPENDENCIES
   rails (= 6.0.2.1)
   rails-i18n
   redis
+  rufo
   sassc-rails
   select2-rails
   simple_form
