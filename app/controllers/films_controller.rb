@@ -13,6 +13,12 @@ class FilmsController < ApplicationController
   end
 
   def show
+    @favorites = []
+    if current_user
+      current_user.films.each do |fav|
+        @favorites << fav.id
+      end
+    end
   end
 
   private

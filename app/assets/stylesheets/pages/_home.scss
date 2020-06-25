@@ -7,8 +7,6 @@
   justify-items: center;
   justify-content: end;
   align-items: center;
-  // grid-auto-flow:rows;
-  // background-color: #dedfe3;
   padding-bottom: 2rem;
 }
 
@@ -21,8 +19,6 @@
     justify-items: center;
     justify-content: end;
     align-items: center;
-    // grid-auto-flow:rows;
-    // background-color: #dedfe3;
     padding-bottom: 2rem;
   }
 }
@@ -36,8 +32,6 @@
     justify-items: center;
     justify-content: end;
     align-items: center;
-    // grid-auto-flow:rows;
-    // background-color: #dedfe3;
     padding-bottom: 2rem;
   }
 }
@@ -65,20 +59,16 @@
 }
 
 .plus-icon {
-  // margin: 0;
   color: #e4eff1;
   z-index: 4;
   position: absolute;
   bottom: 8px;
   right: 8px;
   opacity: 0.8;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
 }
 
 .affiche-bord {
   border-radius: 5px;
-}
-
-.fa-plus-square {
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
 }
 
