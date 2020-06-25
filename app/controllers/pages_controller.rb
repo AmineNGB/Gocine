@@ -17,6 +17,12 @@ class PagesController < ApplicationController
   def invitation
   end
 
+  def friends
+    @friends = current_user.friends
+    @friend_requests = current_user.requested_friends
+    @friend_request = FriendRequest.new
+  end
+
   def final
     @event = Event.first
     @date = Seance.find(Event.last.cinema_id).horaire.time
