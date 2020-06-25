@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "pages/invitation"
   get "pages/loading"
   get "pages/friends"
+  get "pages/friends/request", to: "users#request_friend", as: "request_friend"
   get "pages/friends/delete/:id", to: "users#delete_friend", as: "delete_friend"
   get "pages/friends/accept/:id", to: "users#accept_friend", as: "accept_friend"
   get "pages/friends/decline/:id", to: "users#decline_friend", as: "decline_friend"

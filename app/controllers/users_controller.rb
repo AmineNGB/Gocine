@@ -19,4 +19,10 @@ class UsersController < ApplicationController
     current_user.decline_request(@friend)
     redirect_to pages_friends_path
   end
+
+  def request_friend
+    @friend = User.find_by(email: params[:email])
+    current_user.friend_request(@friend)
+    redirect_to pages_friends_path
+  end
 end

@@ -30,3 +30,9 @@
   </li>
   <% end %>
 </ul>
+
+<%= form_with(url: request_friend_path, method: "get") do %>
+  <%= label_tag(:email, "Search for:") %>
+  <%= text_field_tag(:email) %>
+  <%= submit_tag("Search") %>
+<% end %>
