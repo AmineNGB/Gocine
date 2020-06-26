@@ -4,6 +4,7 @@ ruby "2.6.5"
 gem "bootsnap", require: false
 gem "jbuilder", "~> 2.0"
 gem "pg", "~> 0.21"
+gem 'pg_search', '~> 2.3.0'
 gem "puma"
 gem "rails", "6.0.2.1"
 gem "redis"
