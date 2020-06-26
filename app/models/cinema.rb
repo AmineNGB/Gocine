@@ -1,6 +1,6 @@
 class Cinema < ApplicationRecord
   has_many :seances
-  has_many :films, through: :seances
+  has_many :films, -> { distinct }, through: :seances
 
   validates :name, presence: true
   validates :ville, presence: true
@@ -9,5 +9,4 @@ class Cinema < ApplicationRecord
   def create_movies
     AllocineMoviesService.new(allocine_id, id).call
   end
-
 end

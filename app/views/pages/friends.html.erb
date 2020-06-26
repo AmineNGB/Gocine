@@ -1,38 +1,52 @@
 <h1 class="text-center color"><strong>Mes Amis</strong></h1>
-<ul class="list-group friends-list">
-  <h3>Amis</h3>
-  <% @friends.each do |friend| %>
-  <li class="list-group-item friend-line">
-    <%=friend.prenom + " " + friend.nom %>
-    <div>
-      <%= link_to "", delete_friend_path(friend.id),
-      data: { confirm: "Es tu sur de vouloir supprimer #{friend.prenom} de tes amis ?" },
-      class: "fa fa-trash" %>
-    </div>
-  </li>
-  <% end %>
-</ul>
-<br />
-<ul class="list-group friends-list">
-  <h3>En attente</h3>
-  <% @friend_requests.each do |friend| %>
-  <li class="list-group-item friend-line">
-    <%=friend.prenom + " " + friend.nom %>
-    <div class="d-flex">
-      <div>
-        <%= link_to "", accept_friend_path(friend.id), class: "fa fa-cross " %>
+<div class="friends-pages d-flex">
+  <div class="friends-list">
+    <ul class="list-group friends-list">
+      <h3>Amis</h3>
+      <% if @friends.empty? %>
+      <div class="alert-film" role="alert">
+        Vous n'avez encore aucun ami ! <strong>Ajoutez en !</strong>
       </div>
-      <div>
-        <%= link_to "", decline_friend_path(friend.id), class: "fa fa-square
-        ml-2" %>
-      </div>
-    </div>
-  </li>
-  <% end %>
-</ul>
-
-<%= form_with(url: request_friend_path, method: "get") do %>
-  <%= label_tag(:email, "Search for:") %>
-  <%= text_field_tag(:email) %>
-  <%= submit_tag("Search") %>
-<% end %>
+      <% end %>
+      <% @friends.each do |friend| %>
+      <li class="list-group-item friend-line">
+        <%=friend.prenom + " " + friend.nom %>
+        <div>
+          <%= link_to "", delete_friend_path(friend.id), data: { confirm: "Es tu
+          sur de vouloir supprimer #{friend.prenom} de tes amis ?" }, class: "fa
+          fa-user-alt-slash", style: "color: red; text-decoration: none" %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <br />
+    <% if @friends_requests %>
+    <ul class="list-group friends-list">
+      <h3>En attente</h3>
+      <% @friend_requests.each do |friend| %>
+      <li class="list-group-item friend-line">
+        <%=friend.prenom + " " + friend.nom %>
+        <div class="d-flex">
+          <div>
+            <%= link_to "", accept_friend_path(friend.id), class: "fa fa-check",
+            style: "color: green; font-size: 20px; text-decoration: none" %>
+          </div>
+          <div>
+            <%= link_to "", decline_friend_path(friend.id), class: "fa fa-times
+            ml-4", style: "color: red; font-size: 20px; text-decoration: none"
+            %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+  <div class="friends-form">
+    <h3>Ajouter un ami</h3>
+    <%= form_with(url: request_friend_path, method: "get", html: { class:
+    'form-group' }) do %> <%= text_field_tag(:email, "" , class: 'form-control',
+    placeholder: 'toto@email.com') %> <%= submit_tag("Search", class: 'btn
+    btn-dark mt-2') %> <% end %>
+  </div>
+</div>
