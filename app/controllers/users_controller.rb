@@ -22,7 +22,14 @@ class UsersController < ApplicationController
 
   def request_friend
     @friend = User.find_by(email: params[:email])
-    current_user.friend_request(@friend)
-    redirect_to pages_friends_path
+
+    if @friend
+      current_user.friend_request(@friend)
+      flash[:notice] = "Ami ajouté avec succès !"
+      redirect_to pages_friends_path
+    else
+      flash[:alert] = "Aucun compte trouvé avec cet email !"
+      redirect_to pages_friends_path
+    end
   end
 end

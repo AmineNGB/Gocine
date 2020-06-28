@@ -21,6 +21,9 @@ class PagesController < ApplicationController
     @friends = current_user.friends
     @friend_requests = current_user.requested_friends
     @friend_request = FriendRequest.new
+    @pending_friends = current_user.pending_friends
+    ap "pending : #{@pending_friends}"
+    ap "requests : #{@friend_requests}"
   end
 
   def final
