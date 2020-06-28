@@ -10,7 +10,7 @@
         margin: 0 auto;
         max-width: 30rem;
         box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        background-color: red;
+        background-color: white;
         padding: 3rem;
         display: flex;
         justify-content: center;
@@ -32,27 +32,27 @@
         margin: 0 auto;
     }
   }
-  
-  
+
+
   .radio-horaire {
     input[type="radio"] {
       display: none;
     }
-  
+
     .form-check{
         margin: 1rem;
     }
-  
+
     label {
     //   padding-right: 10px;
     }
-  
+
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
       position: absolute;
       display: none;
   }
-  
+
   [type="radio"]:checked + label,
   [type="radio"]:not(:checked) + label
   {
@@ -103,8 +103,7 @@
       -webkit-transform: scale(1);
       transform: scale(1);
   }
-  
+
   }
-  
-  
-  
+
+

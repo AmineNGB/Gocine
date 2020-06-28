@@ -65,6 +65,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bootstrap-select-rails (1.13.8)
     builder (3.2.4)
     byebug (11.1.1)
     coderay (1.1.2)
@@ -237,6 +238,7 @@ DEPENDENCIES
   autoprefixer-rails
   awesome_print
   bootsnap
+  bootstrap-select-rails (~> 1.6, >= 1.6.3)
   devise
   dotenv-rails
   font-awesome-sass (~> 5.12.0)

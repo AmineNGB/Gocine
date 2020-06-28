@@ -3,8 +3,8 @@
     <%= simple_form_for(@event) do |f| %>
       <%= f.input :date, as: :date, html5: true, order: [:day, :month, :year], label: "Date de sortie :" %>
       <%= f.input :schedule, wrapper_html: { class: "radio-horaire mt-4 mb-4" }, collection: [['Matin', :matin], ['Après-midi', :apresmidi], ['Soir', :soir]], as: :radio_buttons, label: "Plage horaire:"%>
-      <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), label: "Cinema:"%>
-      <%= f.input :user_ids, as: :select, collection: current_user.friends, input_html: { multiple: true }, label: "Avec qui veux-tu y aller ?" %>
+      <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), input_html: { class: "selectpicker", title: "Choisissez votre cinéma", "data-live-search" => "true" }, label: "Cinema:"%>
+      <%= f.input :user_ids, as: :select, collection: current_user.friends, input_html: { multiple: true, class: "selectpicker", title: "Invitez vos amis", "data-live-search" => "true" }, label: "Avec qui veux-tu y aller ?" %>
       <%= f.submit "Créer cet événement !", class: 'btn btn-primary submit mt-2 shadow-lg' %>
     <% end %>
   </div>

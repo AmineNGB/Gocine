@@ -3,6 +3,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
+import "bootstrap-select";
 
 import { initSortable } from '../plugins/init_sortable';
 import { initSelect2 } from '../plugins/init_select2';
