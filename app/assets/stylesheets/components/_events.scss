@@ -36,18 +36,22 @@
 }
 
 .radio-horaire {
+  text-align: center;
   input[type="radio"] {
     display: none;
   }
 
   .form-check {
     margin: 0.25rem 0;
-    padding-left: 0.25rem;
   }
 
-  label {
-    //   padding-right: 10px;
+  .col-form-label {
+    text-align: left;
   }
+
+  // label {
+  //   padding-right: 10px;
+  // }
 
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
@@ -62,8 +66,8 @@
     cursor: pointer;
     line-height: 20px;
     display: inline-block;
-    color: white;
-    background-color: #167ffb;
+    // color: white;
+    // background-color: #167ffb;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 5px;
