@@ -1,6 +1,14 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouvez son cinema"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 <div id="main">
   <% @films.each do |film| %>
     <div class="movie-card">

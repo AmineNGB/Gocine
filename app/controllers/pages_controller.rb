@@ -9,6 +9,18 @@ class PagesController < ApplicationController
       end
     end
     @films = Film.all
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR ville ILIKE :query"
+      @cinemas = Cinema.where(sql_query, query: "%#{params[:query]}%")
+      @films = []
+      @cinemas.each do |cinema|
+        @films << cinema.films
+      end
+      @films = @films.flatten
+    else
+      @films = Film.all
+    end
   end
 
   def schedule
