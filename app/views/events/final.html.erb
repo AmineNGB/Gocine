@@ -1,6 +1,5 @@
 <% if @event.seance.present? %>
 <div id="center" class="mb-2">
-  <!-- <%=image_tag "rideau.png", class: "size"%> -->
   <div id="lock">
     <h1 class="color"><strong>Votre séance</strong></h1>
     <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
