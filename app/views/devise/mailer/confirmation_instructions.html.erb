@@ -1,5 +1,5 @@
-<p>Bienvenu parmis nous <%= @email %>!</p>
+<h2>Bienvenu parmis nous <%= @email %>!</h2>
 
 <p>Dernière étape pour accéder pleinement à notre site:</p>
 
-<p><%= link_to 'Je confirme mon e-mail', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><strong><%= link_to 'Je confirme mon e-mail', confirmation_url(@resource, confirmation_token: @token) %></strong></p>

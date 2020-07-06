@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   # get 'users/profile' , as: :profile
   devise_for :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
   get "pages/schedule"
   get "pages/invitation"
   get "pages/loading"
