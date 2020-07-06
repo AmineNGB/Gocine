@@ -1,19 +1,17 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
-<%#= form_tag root_path, method: :get do %>
-  <%#= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Trouvez son cinema"
-  %>
-  <%#= collection_select(:cinema, :query, Cinema.all, :id, :name) %>
-  <%#= submit_tag "Search", class: "btn btn-primary" %>
-  <%# end %>
-  <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: ""}, label: "Choisissez votre cinéma", required: false %>
-    <%= f.submit "Search", class: "btn btn-dark" %>
-  <% end %>
+  <div class="cinema-filter">
+    <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-filter' } do |f| %>
+      <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: "Toto", placeholder: ""}, label: "Choisissez votre cinéma", prompt: "Tous", required: false %>
+      <%= f.submit "Choisir", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+  <div class="cinema-name">
+    <% if @cinema.present? %>
+      <h2>Films à l'affiche au cinéma <%= @cinema.name %> :</h2>
+    <% end %>
+  </div>
   <div id="main">
     <% @films.each do |film| %>
       <div class="movie-card">
