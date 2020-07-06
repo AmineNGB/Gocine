@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     end
     @films = Film.all
 
-    if params[:query].present?
+    if params[:query].present? && params.dig(:query, :id).to_i != 0
       # sql_query = "name ILIKE :query OR ville ILIKE :query"
       # @cinemas = Cinema.where(sql_query, query: "%#{params[:query]}%")
       # @films = []
@@ -18,7 +18,8 @@ class PagesController < ApplicationController
       #   @films << cinema.films
       # end
       # @films = @films.flatten
-      @films = Cinema.find(params.dig(:query, :id).to_i).films
+      @cinema = Cinema.find(params.dig(:query, :id).to_i)
+      @films = @cinema.films
     else
       @films = Film.all
     end
