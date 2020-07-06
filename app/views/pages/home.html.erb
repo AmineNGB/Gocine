@@ -1,29 +1,34 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
-<%= form_tag root_path, method: :get do %>
-  <%= text_field_tag :query,
+<%#= form_tag root_path, method: :get do %>
+  <%#= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Trouvez son cinema"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<div id="main">
-  <% @films.each do |film| %>
-    <div class="movie-card">
-      <%= link_to film_path(film) do %>
-        <%= image_tag film.photo_url, size: "160x200", class: "affiche-bord" %>
-        <% if @favorites.include? film.id %>
-        <% else %>
-          <%= link_to film_favorites_path(film.id),
+  <%#= collection_select(:cinema, :query, Cinema.all, :id, :name) %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+  <%# end %>
+  <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: ""}, label: "Choisissez votre cinéma", required: false %>
+    <%= f.submit "Search", class: "btn btn-dark" %>
+  <% end %>
+  <div id="main">
+    <% @films.each do |film| %>
+      <div class="movie-card">
+        <%= link_to film_path(film) do %>
+          <%= image_tag film.photo_url, size: "160x200", class: "affiche-bord" %>
+          <% if @favorites.include? film.id %>
+          <% else %>
+            <%= link_to film_favorites_path(film.id),
                       class: "plus-icon",
                       method: :post,
                       remote: true do %>
-                  <i class="fas fa-plus-square fa-3x"></i>
+              <i class="fas fa-plus-square fa-3x"></i>
             <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+  </div>
