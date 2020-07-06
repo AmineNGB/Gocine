@@ -7,9 +7,17 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :phone,
-                required: false,
+                required: true,
                 label: "Téléphone",
                 input_html: { autocomplete: "tel-national" }%>
+    <%= f.input :prenom,
+                required: true,
+                label: "Prénom",
+                input_html: { autocomplete: "given-name" }%>
+    <%= f.input :nom,
+                required: true,
+                label: "Nom",
+                input_html: { autocomplete: "family-name" }%>
     <%= f.input :password,
                 required: true,
                 label: "Mot de passe",
