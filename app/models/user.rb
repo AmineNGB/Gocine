@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :requesteds, through: :requester_users
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   def to_s
     "#{prenom} #{nom}"
