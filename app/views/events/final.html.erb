@@ -1,37 +1,37 @@
 <% if @event.seance.present? %>
-<div id="center" class="mb-2">
-  <div id="lock">
-    <h1 class="color"><strong>Votre séance</strong></h1>
-    <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
-    <div class="info enter-in">
-      <div class="resume d-flex bd-highlight">
-        <!-- <h4>Cinéma :</h4> -->
-        <p class="bd-highlight"><strong><%= Cinema.find(@event.cinema_id).name %></strong></p>
-        <!-- <h4>Horaire :</h4> -->
-        <p class="ml-auto bd-highlight">
-          <strong><%= Seance.find(@event.seance_id).horaire.time.to_formatted_s(:short) %></strong></p>
-        <!-- <a><%= Seance.find(@event.seance_id).link %></a> -->
-      </div>
-      <div class="d-flex bd-highlight">
-        <div>
-          <h4 class="bd-highlight">Avec :</h4>
+  <div id="center" class="mb-2">
+    <div id="lock">
+      <h1 class="color"><strong>Votre séance</strong></h1>
+      <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
+      <div class="info enter-in">
+        <div class="resume d-flex bd-highlight">
+          <!-- <h4>Cinéma :</h4> -->
+          <p class="bd-highlight"><strong><%= Cinema.find(@event.cinema_id).name %></strong></p>
+          <!-- <h4>Horaire :</h4> -->
+          <p class="ml-auto bd-highlight">
+            <strong><%= Seance.find(@event.seance_id).horaire.time.to_formatted_s(:short) %></strong></p>
+          <!-- <a><%= Seance.find(@event.seance_id).link %></a> -->
         </div>
-        <div class=" ml-auto bd-highlight font-weight-bold">
-          <% @event.guests.confirmed.each do |guest|%>
-            <% user = guest.user %>
-             <p><%= user.nom %>
-            <%= user.prenom %></p>
-          <%end%>
+        <div class="d-flex bd-highlight">
+          <div>
+            <h4 class="bd-highlight">Avec :</h4>
+          </div>
+          <div class=" ml-auto bd-highlight font-weight-bold">
+            <% @event.guests.confirmed.each do |guest|%>
+              <% user = guest.user %>
+              <p><%= user.nom %>
+                <%= user.prenom %></p>
+            <%end%>
+          </div>
         </div>
+        <a target="_blank" class="btn btn-dark mt-4" href="<%= Seance.find(@event.seance_id).link %>">Réservez ici !</a>
       </div>
-      <a class="btn btn-dark mt-4" href="<%= Seance.find(@event.seance_id).link %>">Réservez ici !</a>
+      <!-- <h3>Bon Film !</h3> -->
     </div>
-    <!-- <h3>Bon Film !</h3> -->
   </div>
-</div>
 <% else %>
-<div class="d-flex flex-column justify-content-center text-center mt-4" id="loading">
-</div>
-<h3 class="d-flex justify-content-center text-center mt-4">Veuillez patientez, nous choisisons le film selon vos
-  préférences ...</h3>
+  <div class="d-flex flex-column justify-content-center text-center mt-4" id="loading">
+  </div>
+  <h3 class="d-flex justify-content-center text-center mt-4">Veuillez patientez, nous choisisons le film selon vos
+    préférences ...</h3>
 <% end %>

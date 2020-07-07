@@ -47,8 +47,8 @@ class EventsController < ApplicationController
 
   def final
     @event = Event.find(params[:id])
-    guest = @event.guests.find_by(user: current_user)
-    guest.confirmed!
+    # guest = @event.guests.find_by(user: current_user)
+    # guest.confirmed!
   end
 
   private
