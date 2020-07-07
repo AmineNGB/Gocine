@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+        <h1>Salut, <%= @guest.user.prenom %></h1>
+        <p>
+            Tu as été invité à une sortie cinéma,
+            ca se passe ici ==> <%= @url %>.
+        </p>
+        <p>
+            N'oublie pas de mettre à jour ta liste de favoris.
+            <%= @favorites %>.
+        </p>
+  </body>
+</html>
