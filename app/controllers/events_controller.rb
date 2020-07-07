@@ -43,6 +43,8 @@ class EventsController < ApplicationController
 
   def answer
     @event = Event.find(params[:id])
+    url = answer_url
+    UserMailer.ask_for_event(@event, url).deliver
   end
 
   def final

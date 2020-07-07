@@ -1,7 +1,6 @@
 require "open-uri"
 require "nokogiri"
 require "awesome_print"
-
 # cinemas = Cinema.all
 # cinemas.each do |cinema|
 # cinema.create_movies
@@ -50,7 +49,6 @@ user4.skip_confirmation!
 user4.save!
 
 "Creation des films à l\'affiche"
-
 cinema_attributes = [
   # {
   #   name: 'Les Amphis',
@@ -78,7 +76,6 @@ cinema_attributes = [
     allocine_id: "P8507",
   },
 ]
-
 cinema_attributes.each do |attr|
   ap "---------------------------"
   cinema = Cinema.create!(attr)
@@ -86,7 +83,6 @@ cinema_attributes.each do |attr|
   cinema.create_movies
   ap "---------------------------"
 end
-
 # favorites_attributes = [
 #   {
 #     user_id: user.id,
@@ -153,9 +149,7 @@ end
 #     film_id: 4,
 #   },
 # ]
-
 # Favorite.create!(favorites_attributes)
-
 # events_attributes = [
 #   {
 #     schedule: :matin,
@@ -166,7 +160,6 @@ end
 # ]
 # "creation evenements"
 # Event.create!(events_attributes)
-
 # Guest.create!(user_id: 1, event_id: 1, status: 1)
 # Guest.create!(user_id: 2, event_id: 1, status: 1)
 # Guest.create!(user_id: 3, event_id: 1, status: 0)
@@ -191,5 +184,4 @@ user3.friend_request(user4)
 user4.accept_request(user3)
 
 # ap Favorite.all
-
 # ap Event.all
