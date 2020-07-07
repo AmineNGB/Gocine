@@ -11,8 +11,14 @@
   justify-content: space-between;
 
   #confirmed {
-   color: green;
-   margin-top: -10px;
+    color: green;
+    margin-top: -10px;
+  }
+
+  #declined {
+    color: red;
+    margin-top: -10px;
+    margin-right: 0.5rem;
   }
 
   #pending {

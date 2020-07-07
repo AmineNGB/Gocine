@@ -1,20 +1,28 @@
 <% @event.guests.each do |guest|%>
-<div class=" answer-card ">
-  <h3 class="d-flex align-items-center"><%= User.find(guest.user_id).prenom %> <%= User.find(guest.user_id).nom %></h3>
-  <% if guest.status == "confirmed" %>
-  <div class="d-flex align-items-center">
-    <i id="confirmed" class="fas fa-check-circle fa-3x"></i>
+  <div class=" answer-card ">
+    <h3 class="d-flex align-items-center"><%= User.find(guest.user_id).prenom %> <%= User.find(guest.user_id).nom %></h3>
+    <% if guest.status == "confirmed" %>
+      <div class="d-flex align-items-center">
+        <i id="confirmed" class="fas fa-check-circle fa-3x"></i>
+      </div>
+    <% elsif guest.status == "rejected" %>
+      <div class="d-flex align-items-center">
+        <i id="declined" class="fas fa-times fa-3x"></i>
+      </div>
+    <% elsif guest.user == current_user %>
+      <div class="d-flex align-items-center">
+        <%= link_to "Accepter", confirm_path(@event), class: "btn btn-primary mr-2"%>
+        <%= link_to "Refuser", decline_path(@event), class: "btn btn-danger "%>
+      </div>
+    <% else %>
+      <i id="pending" class="far fa-clock fa-3x d-flex align-items-center"></i>
+    <% end %>
   </div>
-  <% elsif guest.user == current_user %>
-  <div class="d-flex align-items-center">
-    <%= link_to "Accepter", final_path(@event), class: "btn btn-primary mr-2"%>
-    <%= link_to "Refuser", root_path(@event), class: "btn btn-danger "%>
-  </div>
-  <% else %>
-  <i id="pending" class="far fa-clock fa-3x d-flex align-items-center"></i>
-  <% end %>
-</div>
 <% end %>
 <div class="d-flex justify-content-center mb-4">
-  <%= link_to "Choisir le film", result_path(@event), class: "btn btn-primary" %>
+  <% if @event.guests[-1].user == current_user %>
+    <%= link_to "Choisir le film", result_path(@event), class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Voir le film sélectionné", final_path(@event), class: "btn btn-primary" %>
+  <% end %>
 </div>
