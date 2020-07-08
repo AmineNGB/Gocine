@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   def home
     @favorites = []
     if current_user
+      @friend_requests = current_user.requested_friends
+      @notification_number = current_user.pending_friends
       current_user.films.each do |fav|
         @favorites << fav.id
       end

@@ -5,6 +5,15 @@
   <%= image_tag "plus.svg" %>
   <% end %> -->
     <div class="nav-btn">
+      <% if user_signed_in? %>
+        <div class="friends-notification">
+          <% if @friend_requests.count > 0  %>
+            <%= link_to pages_friends_path, title: "Invitations Amis" do %> 
+              <%= @friend_requests.count %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="star btn-nav">
         <%= link_to favorites_path, class: "navbar-clip" do %> <%= image_tag "heart.svg" %>
           Favoris <% end %>
