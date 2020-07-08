@@ -18,28 +18,3 @@ if (addMovie) {
   });
 });
 }
-
-function showNotification() {
-  const notification = new Notification("Demande d'amis !", {
-    body: "Tu as reçu une demande d'amis !"
-  });
-
-  notification.onclick = (e) => {
-    window.location.href === "http://localhost:3000/pages/friends/"
-  }
-}
-
-if (window.location.href === "http://localhost:3000/") {
-  showNotification();
-}
-
-// console.log(Notification.permission);
-// if (Notification.permission == 'granted') {
-//   showNotification();;
-// } else if (Notification.permission !== "denied") {
-//   Notification.requestPermission().then(permission => {
-//     if (permission === "granted") {
-//       showNotification();
-//     } 
-//   });
-// }
