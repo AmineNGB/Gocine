@@ -5,7 +5,6 @@ class PagesController < ApplicationController
     @favorites = []
     if current_user
       @friend_requests = current_user.requested_friends
-      @notification_number = current_user.pending_friends
       current_user.films.each do |fav|
         @favorites << fav.id
       end
@@ -43,6 +42,7 @@ class PagesController < ApplicationController
   end
 
   def final
+    @friend_requests = current_user.requested_friends
     @event = Event.first
     @date = Seance.find(Event.last.cinema_id).horaire.time
   end

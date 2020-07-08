@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   before_action :set_film, only: [:show, :destroy]
 
   def index
+    @friend_requests = current_user.requested_friends
     @favorites = Favorite.all
   end
 
