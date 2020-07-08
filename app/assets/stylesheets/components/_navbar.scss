@@ -2,7 +2,7 @@
   position: relative;
   justify-content: space-between;
   background: white;
-  box-shadow: 0px 1px 8px 1px rgba(100, 100, 100, .1);
+  box-shadow: $box-shadow;
   margin-bottom: 1rem;
 }
 
@@ -11,7 +11,12 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
+  width: 72px;
+  margin: 0 0;
+}
+
+.navbar-lewagon .navbar-brand {
+  padding: 0;
 }
 
 // .navbar-lewagon .navbar-plus img {
@@ -21,10 +26,15 @@
 
 .navbar-lewagon .navbar-clip img {
   width: 40px;
-  margin-right: 0.5rem;
-  // position: absolute;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  // margin-right: 0.5rem;
+  // position: relative;
+}
 
-
+.navbar-lewagon .dropdown {
+  cursor: pointer;
 }
 
 .nav-btn {
@@ -36,17 +46,31 @@
   align-items: center;
   // margin-right: 3rem;
   height: auto;
+}
 
+.nav-btn .btn-nav {
+  text-align: center;
+  // margin: 0 0.5rem;
+  align-items: center;
+  padding: 0 0.5rem;
 
+  &:hover {
+    background-color: $light-blue;
+  }
+}
+
+.nav-btn .btn-nav a {
+  color: black;
+  text-decoration: none;
 }
 
 .navbar-toggler {
-    padding: 0.5rem 0.5rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 50%;
+  padding: 0.5rem 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
 }
 
 .navbar-toggler-icon {
