@@ -9,7 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 1px 1px 5px rgba(black, 0.25);
+  box-shadow: $box-shadow;
 }
 
 #center {
@@ -33,7 +33,7 @@
   margin-top: 20px;
   background-color: white;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(black, 0.3);
+  box-shadow: $box-shadow;
   padding: 1rem;
   color: black;
   border-radius: 5px;

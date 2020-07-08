@@ -53,7 +53,7 @@
     <h3>Ajouter un ami</h3>
     <%= form_with(url: request_friend_path, method: "post", html: { class: 'form-group' }, local: true) do %>
       <%= text_field_tag(:email, "" , class: 'form-control', placeholder: 'toto@email.com') %>
-      <%= submit_tag("Ajouter !", class: 'btn btn-dark mt-2') %>
+      <%= submit_tag("Ajouter !", class: 'btn bungee btn-primary mt-2') %>
     <% end %>
   </div>
 </div>

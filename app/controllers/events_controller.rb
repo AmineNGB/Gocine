@@ -23,6 +23,8 @@ class EventsController < ApplicationController
 
     if @event.save
       @event.guests.create!(user_id: current_user.id, status: "confirmed")
+      url = answer_url(@event.id)
+      UserMailer.ask_for_event(@event, url).deliver
       redirect_to event_path(@event)
     else
       render :new
@@ -43,8 +45,8 @@ class EventsController < ApplicationController
 
   def answer
     @event = Event.find(params[:id])
-    url = answer_url
-    UserMailer.ask_for_event(@event, url).deliver
+    # url = answer_url
+    # UserMailer.ask_for_event(@event, url).deliver
   end
 
   def final

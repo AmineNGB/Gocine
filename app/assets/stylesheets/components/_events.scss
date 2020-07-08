@@ -9,7 +9,7 @@
   .event-form {
     margin: 0 auto;
     max-width: 30rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: $box-shadow;
     background-color: white;
     padding: 2rem 1rem;
     border-radius: 5px;
@@ -29,7 +29,7 @@
   .submit {
     width: min-content;
     align-items: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: $box-shadow;
     margin: 0 auto;
     border-radius: 5px;
   }
