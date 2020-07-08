@@ -7,16 +7,16 @@
   padding: 10px;
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
-  box-shadow: 1px 1px 8px rgba(black, 0.25);
+  box-shadow: $box-shadow;
   justify-content: space-between;
 
   #confirmed {
-    color: green;
+    color: $green;
     margin-top: -10px;
   }
 
   #declined {
-    color: red;
+    color: $red;
     margin-top: -10px;
     margin-right: 0.5rem;
   }

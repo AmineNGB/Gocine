@@ -1,32 +1,32 @@
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
-  <div class="cinema-filter">
-    <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-filter' } do |f| %>
-      <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: "Toto", placeholder: ""}, label: "Choisissez votre cinéma", prompt: "Tous", required: false %>
-      <%= f.submit "Choisir", class: "btn btn-dark" %>
-    <% end %>
-  </div>
-  <div class="cinema-name">
-    <% if @cinema.present? %>
-      <h2>Films à l'affiche au cinéma <%= @cinema.name %> :</h2>
-    <% end %>
-  </div>
-  <div id="main">
-    <% @films.each do |film| %>
-      <div class="movie-card">
-        <%= link_to film_path(film) do %>
-          <%= image_tag film.photo_url, size: "160x200", class: "affiche-bord" %>
-          <% if @favorites.include? film.id %>
-          <% else %>
-            <%= link_to film_favorites_path(film.id),
+<div class="cinema-filter">
+  <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-filter' } do |f| %>
+    <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: "Toto", placeholder: ""}, label: "Choisissez votre cinéma", prompt: "Tous", required: false %>
+    <%= f.submit "Choisir", class: "btn bungee btn-primary" %>
+  <% end %>
+</div>
+<div class="cinema-name">
+  <% if @cinema.present? %>
+    <h2>Films à l'affiche au cinéma <%= @cinema.name %> :</h2>
+  <% end %>
+</div>
+<div id="main">
+  <% @films.each do |film| %>
+    <div class="movie-card">
+      <%= link_to film_path(film) do %>
+        <%= image_tag film.photo_url, size: "160x200", class: "affiche-bord" %>
+        <% if @favorites.include? film.id %>
+        <% else %>
+          <%= link_to film_favorites_path(film.id),
                       class: "plus-icon",
                       method: :post,
                       remote: true do %>
-              <i class="fas fa-plus-square fa-3x"></i>
-            <% end %>
+            <i class="fas fa-plus-square fa-3x"></i>
           <% end %>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

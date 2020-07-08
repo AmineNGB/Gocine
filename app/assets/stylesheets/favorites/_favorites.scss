@@ -1,7 +1,7 @@
 #favsortable {
   cursor: grab;
   background-color: #FFFFFF;
-  box-shadow: 1px 1px 5px rgba(black, 0.3);
+  box-shadow: $box-shadow;
 }
 
 #favsortable:active {

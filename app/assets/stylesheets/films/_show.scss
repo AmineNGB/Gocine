@@ -12,9 +12,17 @@
 }
 
 .add-film {
-  color: green;
+  color: $blue;
+
+  &:hover {
+    color: $green
+  }
 }
 
 .goback {
-  color: green;
+  color: $blue;
+
+  &:hover {
+    color: $green
+  }
 }
