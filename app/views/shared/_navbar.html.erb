@@ -7,9 +7,9 @@
     <div class="nav-btn">
       <% if user_signed_in? %>
         <div class="friends-notification">
-          <% if @friend_requests.count > 0  %>
-            <%= link_to pages_friends_path, title: "Invitation Amis" do %> 
-              <%= @friend_requests.count %>
+          <% if current_user.requested_friends.count > 0  %>
+            <%= link_to pages_friends_path, title: "Invitation Amis" do %>
+              <%= current_user.requested_friends.count %>
             <% end %>
           <% end %>
         </div>
