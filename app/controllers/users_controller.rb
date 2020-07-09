@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def profile
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
   end
 
   def delete_friend

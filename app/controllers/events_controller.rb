@@ -1,16 +1,16 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
   end
 
   def show
     @event = Event.find(params[:id])
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
   end
 
   def new
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     if current_user.favorites.count < 3
       flash[:alert] = "Vous devez avoir au moins 3 films dans votre liste"
       redirect_to favorites_path
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @friends = current_user.friends
     @event = Event.new(event_params)
 
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   end
 
   def result
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     seance = MovieMatcher.new(@event).find_best_seance
     @event.seance = seance
@@ -49,14 +49,14 @@ class EventsController < ApplicationController
   end
 
   def answer
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     # url = answer_url
     # UserMailer.ask_for_event(@event, url).deliver
   end
 
   def final
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     # guest = @event.guests.find_by(user: current_user)
     # guest.confirmed!

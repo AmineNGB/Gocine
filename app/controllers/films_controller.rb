@@ -4,7 +4,7 @@ class FilmsController < ApplicationController
 
   def index
     @films = Film.all
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
   end
 
   def create
@@ -14,7 +14,7 @@ class FilmsController < ApplicationController
   end
 
   def show
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @favorites = []
     if current_user
       current_user.films.each do |fav|

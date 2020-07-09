@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
   def decline
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     guest = @event.guests.find_by(user: current_user)
     if guest.user == current_user
@@ -10,7 +10,7 @@ class GuestsController < ApplicationController
   end
 
   def confirm
-    @friend_requests = current_user.requested_friends
+    # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     guest = @event.guests.find_by(user: current_user)
     if guest.user == current_user
