@@ -97,11 +97,18 @@
   padding-left: 0 !important;
 }
 
+.friends-icon {
+  position: relative;
+}
+
 .friends-notification {
+  position: absolute;
+  top: 0.2rem;
+  right: -0.9rem;
 
   a {
-    width: 30px;
-    height: 30px;
+    width: 1.2rem;
+    height: 1.2rem;
     border-radius: 50%;
     background-color: $red;
     margin-right: 1rem;
