@@ -12,13 +12,13 @@
         Favoris <% end %>
       </div>
       <div class="friends-icon btn-nav">
-                    <div class="friends-notification">
-                      <% if current_user.requested_friends.count > 0  %>
-                        <%= link_to pages_friends_path, title: "Invitation Amis" do %>
-                          <%= current_user.requested_friends.count %>
-                        <% end %>
-                      <% end %>
-                    </div>
+        <div class="friends-notification">
+          <% if current_user.requested_friends.count > 0  %>
+            <%= link_to pages_friends_path, title: "Invitation Amis" do %>
+              <%= current_user.requested_friends.count %>
+            <% end %>
+          <% end %>
+        </div>
         <%= link_to pages_friends_path, class: "navbar-clip" do %> <%= image_tag "friends.svg" %>
           Amis <% end %>
       </div>
