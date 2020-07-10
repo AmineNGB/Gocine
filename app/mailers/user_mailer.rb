@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     @cinema = @event.cinema
     @film = @seance.film
     @date = l @seance.horaire, format: :long2
-    # @creator = event.guests.last.user.to_s
+    # @creator = event.creator.to_s
     @url = @seance.link
     @participants.each do |guest|
       @guest = guest
