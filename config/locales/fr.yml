@@ -3,6 +3,7 @@ fr:
     formats:
       default: "%d/%m/%Y"
       long: "%e %B %Y"
+      long_day: "%A %d %B"
       short: "%e %b"
       long2: "%A %d %B %Y %Hh%M"
       toto: "%d %B %Y"

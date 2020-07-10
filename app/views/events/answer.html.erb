@@ -1,3 +1,7 @@
+<div class="header-answer color">
+  <h2 class="header-answer align-items-center bungee"><%= l @event.date, format: :long %> </h2>
+  <h2 class="header-answer align-items-center bungee"><%= @event.cinema.name %> </h2>
+</div>
 <% @event.guests.each do |guest|%>
   <div class=" answer-card ">
     <h3 class="d-flex align-items-center"><%= User.find(guest.user_id).prenom %> <%= User.find(guest.user_id).nom %></h3>
