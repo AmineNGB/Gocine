@@ -6,7 +6,7 @@
   <% end %> -->
     <div class="nav-btn">
       <% if user_signed_in? %>
-      <% end %>
+      
       <div class="star btn-nav">
         <%= link_to favorites_path, class: "navbar-clip" do %> <%= image_tag "heart.svg" %>
         Favoris <% end %>
@@ -22,6 +22,7 @@
         <%= link_to pages_friends_path, class: "navbar-clip" do %> <%= image_tag "friends.svg" %>
           Amis <% end %>
       </div>
+      <% end %>
       <button
       class="navbar-toggler"
       type="button"
