@@ -16,14 +16,14 @@ class UserMailer < ApplicationMailer
 
   def final(event)
     @event = event
-    @guests = @event.guests
+    @participants = @event.participants
     @seance = @event.seance
     @cinema = @event.cinema
     @film = @seance.film
     @date = l @seance.horaire, format: :long2
     # @creator = event.creator.to_s
     @url = @seance.link
-    @guests.each do |guest|
+    @participants.each do |guest|
       @guest = guest
       mail(to: guest.user.email, subject: "Voici votre séance !")
     end

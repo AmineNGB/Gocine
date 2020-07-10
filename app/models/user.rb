@@ -22,6 +22,39 @@ class User < ApplicationRecord
     "#{prenom} #{nom}"
   end
 
+  def pending_events
+    pending_events = []
+    self.events.each do |event|
+      event.guests.each do |guest|
+        if guest.user == self && guest.status == "pending" && !event.seance
+          pending_events << event
+        end
+      end
+    end
+    pending_events
+  end
+
+  def coming_events
+    coming_events = []
+    self.events.each do |event|
+      event.guests.each do |guest|
+        if guest.user == self && guest.status == "confirmed" && event.seance && event.seance.horaire > DateTime.now
+          coming_events << event
+        end
+      end
+    end
+    coming_events
+  end
+
+  def old_events
+    old_events = []
+    self.events.each do |event|
+      old_events << event if event.seance && event.seance.horaire < DateTime.now
+    end
+
+    old_events
+  end
+
   def strangers
     users = []
     User.all.each do |user|

@@ -14,8 +14,8 @@
     <h4> <%= @date %> </h4>
     <h3>Participants :</h3>
     <ul>
-      <% @guests.each do |guest| %>
-      <li><%= guest.user.to_s %></li>
+      <% @participants.each do |participant| %>
+      <li><%= participant.user.to_s %></li>
       <% end %>
     </ul>
     <h3>Et le lien pour réserver :</h3>

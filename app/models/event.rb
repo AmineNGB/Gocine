@@ -36,4 +36,8 @@ class Event < ApplicationRecord
   def creator
     self.guests.last.user
   end
+
+  def participants
+    guests = self.guests.reject { |guest| guest.status != "confirmed" }
+  end
 end

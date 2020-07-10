@@ -6,20 +6,18 @@
   <% end %> -->
     <div class="nav-btn">
       <% if user_signed_in? %>
-      
+
       <div class="star btn-nav">
         <%= link_to favorites_path, class: "navbar-clip" do %> <%= image_tag "heart.svg" %>
         Favoris <% end %>
       </div>
       <div class="friends-icon btn-nav">
-        <div class="friends-notification">
           <% if current_user.requested_friends.count > 0  %>
-            <%= link_to pages_friends_path, title: "Invitation Amis" do %>
+            <div class="notification-badge friends-notification">
               <%= current_user.requested_friends.count %>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-        <%= link_to pages_friends_path, class: "navbar-clip" do %> <%= image_tag "friends.svg" %>
+        <%= link_to friends_path, class: "navbar-clip" do %> <%= image_tag "friends.svg" %>
           Amis <% end %>
       </div>
       <% end %>
@@ -32,31 +30,36 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <!-- <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li> -->
             <li class="nav-item dropdown">
               <%= image_tag "scream.svg", class: "avatar-large dropdown-toggle", id:
           "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true,
           'aria-expanded': false %>
+            <% if current_user.pending_events.count > 0  %>
+              <div class="notification-badge events-notification">
+                <%= current_user.pending_events.count %>
+              </div>
+            <% end %>
               <div
             class="dropdown-menu dropdown-menu-right"
             aria-labelledby="navbarDropdown"
           >
-                <%= link_to "Mon compte", edit_user_registration_path, class:
-            "dropdown-item" %> <%= link_to "Ma liste de films", favorites_path,
-            class: "dropdown-item" %> <%= link_to "Organiser un ciné",
-            new_event_path, class: "dropdown-item" %> <%= link_to "Déconnexion",
-            destroy_user_session_path, method: :get, class: "dropdown-item"
-            %>
+
+                <%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Ma liste de films", favorites_path, class: "dropdown-item" %>
+                <%= link_to "Mes sorties", my_events_path, class: "dropdown-item" %>
+                <% if current_user.pending_events.count > 0  %>
+                  <div class="notification-badge events-notification-list">
+                      <%= current_user.pending_events.count %>
+                  </div>
+                <% end %>
+                <%= link_to "Organiser un ciné", new_event_path, class: "dropdown-item" %>
+                <%= link_to "Déconnexion", destroy_user_session_path, method: :get, class: "dropdown-item" %>
               </div>
               <i class="fas fa-caret-down" id="triangle"></i>
             </li>

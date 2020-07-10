@@ -1,0 +1,32 @@
+.events {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 34rem;
+  min-height: 12rem;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  list-style: none;
+
+  div {
+    margin: 0 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+}
+
+.show-event {
+  align-self: flex-end;
+  justify-content: flex-start;
+}
