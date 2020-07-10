@@ -24,7 +24,7 @@
   </div>
 <% end %>
 <div class="d-flex justify-content-center mb-4">
-  <% if @event.guests[-1].user == current_user %>
+  <% if @event.creator == current_user %>
     <%= link_to "Choisir le film", result_path(@event), class: "btn bungee btn-primary" %>
   <% else %>
     <%= link_to "Voir le film sélectionné", final_path(@event), class: "btn bungee btn-primary" %>
