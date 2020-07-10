@@ -31,19 +31,19 @@ user2.skip_confirmation!
 user2.save!
 
 user3 = User.new
-user3.email = "boule@gmail.com"
-user3.password = "password"
-user3.nom = "Bou"
-user3.prenom = "Boule"
-user3.phone = "07xxxxxxxx"
+user3.email = "amineneghbel@gmail.com"
+user3.password = "Password123"
+user3.nom = "NGB"
+user3.prenom = "Amine"
+user3.phone = "0612241326"
 user3.skip_confirmation!
 user3.save!
 
 user4 = User.new
-user4.email = "jules@gmail.com"
-user4.password = "password"
-user4.nom = "Ju"
-user4.prenom = "Jules"
+user4.email = "inicolas69@gmail.com"
+user4.password = "Password123"
+user4.nom = "Iniesta"
+user4.prenom = "Nicolas"
 user4.phone = "07xxxxxxxx"
 user4.skip_confirmation!
 user4.save!
