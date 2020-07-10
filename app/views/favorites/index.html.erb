@@ -1,4 +1,4 @@
-<h1 class="text-center color">Mes Films (<%= current_user.films.count %>)</h1>
+<h1 class="text-center color">Mes Favoris (<%= current_user.films.count %>)</h1>
 <% if current_user.favorites.count < 3 %>
   <div class="alert-film" role="alert">
     <strong>Attention !</strong> Votre liste de film n'est pas assez fournie pour organiser une sortie. ( Minimum 3 films )
