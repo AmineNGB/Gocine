@@ -45,6 +45,7 @@ class EventsController < ApplicationController
     @event.seance = seance
     @event.save!
     @seance = Seance.find(@event.seance_id)
+    UserMailer.final(@event).deliver
     redirect_to final_path
   end
 

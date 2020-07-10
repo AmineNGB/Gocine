@@ -14,5 +14,6 @@ fr:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
+      long2: "%A %d %B %Y %Hh%M"
       toto: "%d %B %Y"
     pm: pm
