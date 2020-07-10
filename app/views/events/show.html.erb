@@ -1,10 +1,9 @@
-<h1 class=" d-flex justify-content-center mt-4 color">Partage à tes amis</h1>
-<div class="d-flex justify-content-around align-items-center mt-4 whatsapp">
-  <i style="color: #3B569D" class="fab fa-facebook-square fa-4x"></i>
-  <i style="color: #1DA0F2" class="fab fa-twitter-square fa-4x"></i>
-  <a style="color: rgb(44, 209, 82)" href="whatsapp://send?text=Hey, ca vous dit un ciné le <%= l(@event.date, format: :toto, locale: :fr)  %> (<%= @event.schedule %>), répondez sur le site: <%= answer_url %> N'oubliez pas de mettre à jour votre liste de favoris sur :<%= favorites_url %>"><i class="fab fa-whatsapp-square fa-4x"></i></a>
-</div>
-</div>
+<h2 class=" d-flex justify-content-center mt-4 color">Partage à tes amis</h2>
+
+<h4>Copie le lien ci-dessous pour inviter tes amis sur les réseaux sociaux :</h4>
+<h4><strong><%= answer_url %></strong></h4>
+<h4>Une fois tes amis invités, clique sur "Suivant"</h4>
+
 <div class="d-flex justify-content-center mt-4">
   <%= link_to "Suivant", answer_path, class: "btn bungee btn-primary" %>
 </div>

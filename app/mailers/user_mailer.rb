@@ -6,8 +6,10 @@ class UserMailer < ApplicationMailer
     @url = url
     @favorites = favorites_url
     @guests = @guests_all.reverse.drop(1).reverse
-    @guests.each do |guest| 
+    @guests.each do |guest|
         @guest = guest
+        @event = event
+        @creator = event.guests.last.user.fullname
         mail(to: guest.user.email, subject: 'Veux-tu participer à la sortie Cinéma ?')
     end
   end
