@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-        <h1>Salut, <%= @guest.user.prenom %></h1>
-        <p>
-          <%= @creator %> t'invite à une sortie cinéma, le <%= @event.date_fr %>.
-            Réponds lui ==> <%= link_to "ici", @url %>
-        </p>
-        <p>
-          N'oublie pas de mettre à jour ta liste de favoris.
-          <%= link_to "Mes favoris", @favorites %>
-        </p>
+    <h1>Salut, <%= @guest.user.prenom %></h1>
+    <p>
+      <%= @creator %> t'invite à une sortie cinéma, le <%= l @event.date, format: :long %>.
+      Réponds lui ==> <%= link_to "ici", @url %>
+    </p>
+    <p>
+      N'oublie pas de mettre à jour ta liste de favoris.
+      <%= link_to "Mes favoris", @favorites %>
+    </p>
   </body>
 </html>

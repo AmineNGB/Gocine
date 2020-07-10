@@ -18,7 +18,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  def fullname
+  def to_s
     "#{prenom} #{nom}"
   end
 

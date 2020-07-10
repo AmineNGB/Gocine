@@ -1,7 +1,10 @@
 <% if @event.seance.present? %>
   <div id="center" class="mb-2">
     <div id="lock">
-      <h1 class="color"><strong>Votre séance</strong></h1>
+      <div class="color">
+        <h1 class=""><strong>Votre séance</strong></h1>
+        <h2 class=" bungee"><strong> <%= @event.seance.film.title %> </strong></h2>
+      </div>
       <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
       <div class="info enter-in">
         <div class="resume d-flex bd-highlight">

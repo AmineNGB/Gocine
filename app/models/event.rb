@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   has_one :film, through: :seance
   accepts_nested_attributes_for :guests
 
-  enum schedule: [ :matin, :apresmidi, :soir]
+  enum schedule: [:matin, :apresmidi, :soir]
 
   validates :date, presence: true
   validates :schedule, presence: true
@@ -15,7 +15,6 @@ class Event < ApplicationRecord
     Seance.where(horaire: hours_range, cinema_id: cinema_id)
   end
 
-
   def hours_range
     if matin?
       date.to_datetime.change(hour: 10)..date.to_datetime.change(hour: 13)
@@ -24,5 +23,13 @@ class Event < ApplicationRecord
     elsif soir?
       date.to_datetime.change(hour: 18)..date.to_datetime.change(hour: 23)
     end
+  end
+
+  def date_fr
+    date.strftime("%A %d %B")
+  end
+
+  def cinema
+    Cinema.find(cinema_id)
   end
 end
