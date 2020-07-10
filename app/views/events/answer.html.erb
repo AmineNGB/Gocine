@@ -1,6 +1,6 @@
-<div class="answer-card header-answer color">
-  <h1 class="d-flex header-answer align-items-center">Le <%= l @event.date, format: :long %> </h1>
-  <h1 class="d-flex header-answer align-items-center"><%= @event.cinema.name %> </h1>
+<div class="header-answer color">
+  <h2 class="header-answer align-items-center bungee"><%= l @event.date, format: :long %> </h2>
+  <h2 class="header-answer align-items-center bungee"><%= @event.cinema.name %> </h2>
 </div>
 <% @event.guests.each do |guest|%>
   <div class=" answer-card ">
