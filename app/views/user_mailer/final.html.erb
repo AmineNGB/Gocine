@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Salut, <%= @guest.user.prenom %></h1>
+    <h2>
+      Voici les infos de votre séance :
+    </h2>
+    <h3>Film :</h3>
+    <h4><%= @film.title %></h4>
+    <h3>Horaire :</h3>
+    <h4> <%= @date %> </h4>
+    <h3>Participants :</h3>
+    <ul>
+      <% @guests.each do |guest| %>
+      <li><%= guest.user.to_s %></li>
+      <% end %>
+    </ul>
+    <h3>Et le lien pour réserver :</h3>
+    <%= link_to "Réserver !", @url %>
+  </body>
+</html>
