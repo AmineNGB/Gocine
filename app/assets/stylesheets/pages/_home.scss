@@ -59,6 +59,20 @@
   }
 }
 
+.color2 {
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-align: center;
+  background-color: $blue;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  width: 30rem;
+}
+
 .plus-icon {
   color: #e4eff1;
   z-index: 4;

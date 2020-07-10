@@ -20,7 +20,7 @@
             <h4 class="bd-highlight">Avec :</h4>
           </div>
           <div class=" ml-auto bd-highlight font-weight-bold">
-            <% @event.guests.confirmed.each do |guest|%>
+            <% @event.participants.each do |guest|%>
               <% user = guest.user %>
               <p><%= user.nom %>
                 <%= user.prenom %></p>

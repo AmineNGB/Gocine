@@ -32,6 +32,12 @@ class PagesController < ApplicationController
   def invitation
   end
 
+  def my_events
+    @user = current_user
+    @pending_events = @user.pending_events + @user.coming_events
+    @old_events = @user.old_events
+  end
+
   def friends
     @friends = current_user.friends
     @friend_requests = current_user.requested_friends
