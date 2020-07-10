@@ -15,7 +15,7 @@ Event.destroy_all
 user = User.new
 user.email = "amine@gmail.com"
 user.password = "password"
-user.nom = "Neghbel"
+user.nom = "test"
 user.prenom = "Amine"
 user.phone = "06xxxxxxxx"
 user.skip_confirmation!
@@ -24,7 +24,7 @@ user.save!
 user2 = User.new
 user2.email = "nico@gmail.com"
 user2.password = "password"
-user2.nom = "Iniesta"
+user2.nom = "test"
 user2.prenom = "Nicolas"
 user2.phone = "07xxxxxxxx"
 user2.skip_confirmation!
