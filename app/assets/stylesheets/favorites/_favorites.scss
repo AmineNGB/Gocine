@@ -27,7 +27,14 @@
   text-align: center;
 }
 
-.fa-trash{
-  color:#d12138;
+.remove-fav {
+  color: $red;
+  text-decoration: none;
+  position: relative;
+  top: 0.25rem;
+  &:hover {
+    color: $red;
+    text-decoration: none;
+  }
 
 }
