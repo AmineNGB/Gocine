@@ -121,11 +121,11 @@
     justify-content: center;
   }
 
-  a:hover {
-    background-color: $blue;
-    border: solid 2px $gray;
-    transform: scale(1.3);
-  }
+  // a:hover {
+  //   background-color: $blue;
+  //   border: solid 2px $gray;
+  //   transform: scale(1.3);
+  // }
   a .tooltiptext {
   visibility: hidden;
   width: 120px;
