@@ -32,4 +32,8 @@ class Event < ApplicationRecord
   def cinema
     Cinema.find(cinema_id)
   end
+
+  def creator
+    self.guests.last.user
+  end
 end
