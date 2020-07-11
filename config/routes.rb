@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "pages/schedule"
   get "pages/invitation"
   get "pages/loading"
+  get "no_film", to: "pages#no_film", as: "no_film"
   get "friends", to: "pages#friends", as: "friends"
   get "my_events", to: "pages#my_events", as: "my_events"
   post "friends/request", to: "users#request_friend", as: "request_friend"

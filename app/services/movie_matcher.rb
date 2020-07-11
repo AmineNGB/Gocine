@@ -10,6 +10,9 @@ class MovieMatcher
     # ap @event.good_movies.where(film_id: best_score[0])
     # ap "Et puis la"
     # ap best_score
+    if best_score.nil?
+      return 0
+    end
     @event.good_movies.where(film_id: best_score[0]).first
   end
 
@@ -29,16 +32,9 @@ class MovieMatcher
     # ap @event
     users.each do |user|
       movies = user.favorites.where(film_id: event.good_movies.pluck(:film_id))
-      # binding.pry
       movies.each_with_index do |movie, i|
         note = 6 - i
-        # ap "Note"
-        # ap note
-        # ap "Movie"
-        # ap movie
-        # ap "Score"
         @score[movie.film_id] += note
-        # ap @score
       end
     end
   end

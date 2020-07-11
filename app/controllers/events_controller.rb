@@ -42,6 +42,10 @@ class EventsController < ApplicationController
     # @friend_requests = current_user.requested_friends
     @event = Event.find(params[:id])
     seance = MovieMatcher.new(@event).find_best_seance
+    if seance == 0
+      redirect_to no_film_path
+      return nil
+    end
     @event.seance = seance
     @event.save!
     @seance = Seance.find(@event.seance_id)
