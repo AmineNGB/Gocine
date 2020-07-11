@@ -6,15 +6,15 @@ class MovieMatcher
 
   def find_best_seance
     calculate_scores
-    ap "Je suis la"
-    ap @event.good_movies.where(film_id: best_score[0])
-    ap "Et puis la"
-    ap best_score
+    # ap "Je suis la"
+    # ap @event.good_movies.where(film_id: best_score[0])
+    # ap "Et puis la"
+    # ap best_score
     @event.good_movies.where(film_id: best_score[0]).first
   end
 
   def best_score
-    @score.max_by { |k,v| v }
+    @score.max_by { |k, v| v }
   end
 
   attr_reader :event

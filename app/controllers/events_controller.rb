@@ -66,6 +66,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:schedule, :users, :cinema_id, :date, user_ids: [])
+    params.require(:event).permit(:schedule, :endschedule, :users, :cinema_id, :date, user_ids: [])
   end
 end
