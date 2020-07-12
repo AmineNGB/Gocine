@@ -13,6 +13,13 @@ class Event < ApplicationRecord
   validates :cinema_id, presence: true
   validate :schedule_must_be_lower_than_endschedule
   validate :event_cant_be_in_past
+  validate :event_cant_be_in_more_than_7_days
+
+  def event_cant_be_in_more_than_7_days
+    if date > Date.today + 7
+      errors.add(:date, "Vous ne pouvez pas créer un évenement dans plus d'une semaine")
+    end
+  end
 
   def event_cant_be_in_past
     if date < Date.today
