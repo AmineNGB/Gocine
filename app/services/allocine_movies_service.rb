@@ -5,7 +5,7 @@ class AllocineMoviesService
   end
 
   def call
-    7.times do |i|
+    8.times do |i|
       ap i
       url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-#{i}/"
       response = HTTParty.post(url, headers = {})
