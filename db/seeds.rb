@@ -5,56 +5,56 @@ require "awesome_print"
 # cinemas.each do |cinema|
 # cinema.create_movies
 # end
-"Cleaning DataBase"
-User.destroy_all
-Seance.destroy_all
-Favorite.destroy_all
-Cinema.destroy_all
-Event.destroy_all
-"User in progress ..."
-user = User.new
-user.email = "amine@gmail.com"
-user.password = "password"
-user.nom = "test"
-user.prenom = "Amine"
-user.phone = "06xxxxxxxx"
-user.skip_confirmation!
-user.save!
+# "Cleaning DataBase"
+# User.destroy_all
+# Seance.destroy_all
+# Favorite.destroy_all
+# Cinema.destroy_all
+# Event.destroy_all
+# "User in progress ..."
+# user = User.new
+# user.email = "amine@gmail.com"
+# user.password = "password"
+# user.nom = "test"
+# user.prenom = "Amine"
+# user.phone = "06xxxxxxxx"
+# user.skip_confirmation!
+# user.save!
 
-user2 = User.new
-user2.email = "nico@gmail.com"
-user2.password = "password"
-user2.nom = "test"
-user2.prenom = "Nicolas"
-user2.phone = "07xxxxxxxx"
-user2.skip_confirmation!
-user2.save!
+# user2 = User.new
+# user2.email = "nico@gmail.com"
+# user2.password = "password"
+# user2.nom = "test"
+# user2.prenom = "Nicolas"
+# user2.phone = "07xxxxxxxx"
+# user2.skip_confirmation!
+# user2.save!
 
-user3 = User.new
-user3.email = "amineneghbel@gmail.com"
-user3.password = "Password123"
-user3.nom = "NGB"
-user3.prenom = "Amine"
-user3.phone = "0612241326"
-user3.skip_confirmation!
-user3.save!
+# user3 = User.new
+# user3.email = "amineneghbel@gmail.com"
+# user3.password = "Password123"
+# user3.nom = "NGB"
+# user3.prenom = "Amine"
+# user3.phone = "0612241326"
+# user3.skip_confirmation!
+# user3.save!
 
-user4 = User.new
-user4.email = "inicolas69@gmail.com"
-user4.password = "Password123"
-user4.nom = "Iniesta"
-user4.prenom = "Nicolas"
-user4.phone = "07xxxxxxxx"
-user4.skip_confirmation!
-user4.save!
+# user4 = User.new
+# user4.email = "inicolas69@gmail.com"
+# user4.password = "Password123"
+# user4.nom = "Iniesta"
+# user4.prenom = "Nicolas"
+# user4.phone = "07xxxxxxxx"
+# user4.skip_confirmation!
+# user4.save!
 
 "Creation des films à l\'affiche"
 cinema_attributes = [
-  # {
-  #   name: 'Les Amphis',
-  #   ville: 'Vaulx-en-Velin',
-  #   allocine_id: 'P0013'
-  # },
+  {
+    name: "Les Amphis",
+    ville: "Vaulx-en-Velin",
+    allocine_id: "P0013",
+  },
   {
     name: "Pathé - Bellecour",
     ville: "Lyon",
@@ -78,8 +78,13 @@ cinema_attributes = [
 ]
 cinema_attributes.each do |attr|
   ap "---------------------------"
-  cinema = Cinema.create!(attr)
-  ap attr[:name]
+  @cinema = Cinema.find_or_create_by(allocine_id: attr[:allocine_id]) do
+    @cinema = Cinema.create!(attr)
+  end
+end
+
+Cinema.all.each do |cinema|
+  ap cinema.name
   cinema.create_movies
   ap "---------------------------"
 end
@@ -165,23 +170,23 @@ end
 # Guest.create!(user_id: 3, event_id: 1, status: 0)
 # Guest.create!(user_id: 4, event_id: 1, status: 2)
 
-user.friend_request(user2)
-user2.accept_request(user)
+# user.friend_request(user2)
+# user2.accept_request(user)
 
-user.friend_request(user3)
-user3.accept_request(user)
+# user.friend_request(user3)
+# user3.accept_request(user)
 
-user.friend_request(user4)
-user4.accept_request(user)
+# user.friend_request(user4)
+# user4.accept_request(user)
 
-user2.friend_request(user3)
-user3.accept_request(user2)
+# user2.friend_request(user3)
+# user3.accept_request(user2)
 
-user2.friend_request(user4)
-user4.accept_request(user2)
+# user2.friend_request(user4)
+# user4.accept_request(user2)
 
-user3.friend_request(user4)
-user4.accept_request(user3)
+# user3.friend_request(user4)
+# user4.accept_request(user3)
 
 # ap Favorite.all
 # ap Event.all

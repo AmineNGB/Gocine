@@ -29,13 +29,26 @@ class AllocineMoviesService
         end
 
         hash["showtimes"]["multiple"].each do |hash2|
-          seance = Seance.new
-          seance.horaire = hash2["startsAt"]
-          seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
-          seance.cinema_id = @id
-          seance.film_id = @film.id
-          seance.save!
+          @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
+          attr = { horaire: hash2["startsAt"],
+                   link: @link,
+                   cinema_id: @id,
+                   allocine_id: hash2["internalId"],
+                   film_id: @film.id }
+          Seance.find_or_create_by(allocine_id: attr[:allocine_id]) do
+            Seance.create!(attr)
+          end
         end
+
+        # hash["showtimes"]["multiple"].each do |hash2|
+        #   seance = Seance.new
+        #   seance.horaire = hash2["startsAt"]
+        #   seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
+        #   seance.cinema_id = @id
+        #   seance.allocine_id = hash2["internalId"]
+        #   seance.film_id = @film.id
+        #   seance.save!
+        # end
       end
       if pages > 1
         url = "http://www.allocine.fr/_/showtimes/theater-#{@allocine_id}/d-#{i}/p-2/"
@@ -58,13 +71,15 @@ class AllocineMoviesService
           end
 
           hash["showtimes"]["multiple"].each do |hash2|
-            seance = Seance.new
-            seance.horaire = hash2["startsAt"]
-            seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"]
-            seance.link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"]
-            seance.cinema_id = @id
-            seance.film_id = @film.id
-            seance.save!
+            @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
+            attr = { horaire: hash2["startsAt"],
+                     link: @link,
+                     cinema_id: @id,
+                     allocine_id: hash2["internalId"],
+                     film_id: @film.id }
+            Seance.find_or_create_by(allocine_id: attr[:allocine_id]) do
+              Seance.create!(attr)
+            end
           end
         end
       end

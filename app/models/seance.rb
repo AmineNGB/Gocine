@@ -5,4 +5,5 @@ class Seance < ApplicationRecord
 
   validates :film, presence: true
   validates :cinema, presence: true
+  validates :allocine_id, presence: true
 end
