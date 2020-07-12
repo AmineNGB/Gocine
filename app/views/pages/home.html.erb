@@ -1,15 +1,15 @@
+<div class="cinema-filter">
+  <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-filter' } do |f| %>
+  <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: "Toto", placeholder: ""}, label: "Choisissez votre cinéma", prompt: "Tous", required: false %>
+  <%= f.submit "Choisir", class: "btn bungee btn-primary" %>
+  <% end %>
+</div>
 <div class="color">
   <h1>A l'affiche</h1>
 </div>
-<div class="cinema-filter">
-  <%= simple_form_for :query, url: root_path, method: "GET", html: { class: 'form-filter' } do |f| %>
-    <%= f.input :id, as: :select, collection: Cinema.all, input_html: {class: "selectpicker form-control", "data-live-search" => "true",value: "Toto", placeholder: ""}, label: "Choisissez votre cinéma", prompt: "Tous", required: false %>
-    <%= f.submit "Choisir", class: "btn bungee btn-primary" %>
-  <% end %>
-</div>
 <div class="cinema-name">
   <% if @cinema.present? %>
-    <h2>Films à l'affiche au cinéma <%= @cinema.name %> :</h2>
+    <h2 class="color2 bungee"><%= @cinema.name %></h2>
   <% end %>
 </div>
 <div id="main">

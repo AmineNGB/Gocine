@@ -1,7 +1,8 @@
 <h1 class="text-center color">Mes Favoris (<%= current_user.films.count %>)</h1>
 <% if current_user.favorites.count < 3 %>
   <div class="alert-film" role="alert">
-    <strong>Attention !</strong> Votre liste de film n'est pas assez fournie pour organiser une sortie. ( Minimum 3 films )
+    <strong>Attention !</strong> Votre liste de film n'est pas assez fournie pour organiser une sortie. ( Minimum 3 films ) Ajoutez en d'autres en cliquant
+    <%= link_to "ICI", root_path, style: "color: black" %>
   </div>
 <% end %>
 <div class="favorites pt-4" id="favorite" data-url="<%= api_draganddrop_path %>">
@@ -19,4 +20,7 @@
       </div>
     </div>
   <% end %>
+  <div class="text-center mt-4">
+    <%= link_to "Ajouter d'autres films", root_path, class: "btn btn-primary bungee box-shadow" %>
+  </div>
 </div>
