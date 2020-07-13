@@ -28,7 +28,10 @@ class EventsController < ApplicationController
     if @event.save
       @event.guests.create!(user_id: current_user.id, status: "confirmed")
       url = answer_url(@event.id)
-      UserMailer.ask_for_event(@event, url).deliver
+      @guests = @event.guests.reverse.drop(1).reverse
+      @guests.each do |guest|
+        UserMailer.with(event: @event, url: url, guest: guest).ask_for_event.deliver_later
+      end
       redirect_to event_path(@event)
     else
       render :new
@@ -49,7 +52,10 @@ class EventsController < ApplicationController
     @event.seance = seance
     @event.save!
     @seance = Seance.find(@event.seance_id)
-    UserMailer.final(@event).deliver
+    participants = @event.participants
+    participants.each do |guest|
+      UserMailer.with(guest: guest, event: @event).final.deliver_later
+    end
     redirect_to final_path
   end
 
