@@ -17,6 +17,9 @@
     <div class="movie-card">
       <%= link_to film_path(film) do %>
         <%= image_tag film.photo_url, size: "160x200", class: "affiche-bord" %>
+        <% if film.new? %>
+          <p class="bungee new-icon">NEW !</p>
+        <% end %>
         <% if @favorites.include? film.id %>
         <% else %>
         <% if user_signed_in? %>
