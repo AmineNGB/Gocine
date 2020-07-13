@@ -20,6 +20,9 @@
         <% if film.new? %>
           <p class="bungee new-icon">NEW !</p>
         <% end %>
+        <% if film.top? %>
+          <p class="bungee top-icon">5<i class="fas fa-star"></i></p>
+        <% end %>
         <% if @favorites.include? film.id %>
         <% else %>
         <% if user_signed_in? %>

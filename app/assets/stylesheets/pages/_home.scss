@@ -122,3 +122,18 @@
   right: -0.5rem;
   padding: 0.25rem;
 }
+
+.top-icon {
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-align: center;
+  background-color: $blue;
+  // height: auto;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  font-weight: bold;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  padding: 0.25rem;
+}
