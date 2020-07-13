@@ -16,20 +16,26 @@ class Event < ApplicationRecord
   validate :event_cant_be_in_more_than_7_days
 
   def event_cant_be_in_more_than_7_days
-    if date > Date.today + 7
-      errors.add(:date, "Vous ne pouvez pas créer un évenement dans plus d'une semaine")
+    if date != nil
+      if date > Date.today + 7
+        errors.add(:date, "Vous ne pouvez pas créer un évenement dans plus d'une semaine")
+      end
     end
   end
 
   def event_cant_be_in_past
-    if date < Date.today
-      errors.add(:date, "Vous ne pouvez pas créer d'évenement dans le passé")
+    if date != nil
+      if date < Date.today
+        errors.add(:date, "Vous ne pouvez pas créer d'évenement dans le passé")
+      end
     end
   end
 
   def schedule_must_be_lower_than_endschedule
-    if schedule > endschedule
-      errors.add(:schedule, "L'heure du début doit être avant la fin ..")
+    if schedule != nil && endschedule != nil
+      if schedule > endschedule
+        errors.add(:schedule, "L'heure du début doit être avant la fin ..")
+      end
     end
   end
 
