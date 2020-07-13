@@ -1,13 +1,14 @@
 <h1 class="text-center color">Mes Sorties</h1>
 <h3 class="color2 bungee">Sorties à venir</h3>
-<div class="events">
-  <% @pending_events.each do |event| %>
+<% if @pending_events.count > 0 %>
+  <div class="events">
+    <% @pending_events.each do |event| %>
     <div class="event-card">
       <div>
         <h4>Invités :</h4>
         <ul>
           <% event.guests.each do |guest| %>
-            <li> <%= guest.user.to_s %> </li>
+          <li> <%= guest.user.to_s %> </li>
           <% end %>
         </ul>
       </div>
@@ -16,31 +17,33 @@
         <%= event.cinema.name %>
       </div>
       <% if event.seance %>
-        <div>
-          <h4>Date :</h4>
-          <%= l event.seance.horaire, format: :short %>
-        </div>
-        <div>
-          <h4>Film :</h4>
-          <%= event.seance.film.title %>
-        </div>
+      <div>
+        <h4>Date :</h4>
+        <%= l event.seance.horaire, format: :short %>
+      </div>
+      <div>
+        <h4>Film :</h4>
+        <%= event.seance.film.title %>
+      </div>
       <% end %>
       <div class="show-event">
         <%= link_to "Réserver !", event.seance.link, target: :_blank, class: "btn bungee btn-primary" if event.seance %>
         <%= link_to "Répondre !", answer_path(event), class: "btn bungee btn-primary" if !event.seance %>
       </div>
     </div>
-  <% end %>
-</div>
-<h3 class="color2 bungee">Sorties passées</h3>
-<div class="events">
-  <% @old_events.each do |event| %>
+    <% end %>
+  </div>
+<% end %>
+<% if @old_events.count > 0 %>
+  <h3 class="color2 bungee">Sorties passées</h3>
+  <div class="events">
+    <% @old_events.each do |event| %>
     <div class="event-card">
       <div>
         <h4>Participants :</h4>
         <ul>
           <% event.participants.each do |guest| %>
-            <li> <%= guest.user.to_s %> </li>
+          <li> <%= guest.user.to_s %> </li>
           <% end %>
         </ul>
       </div>
@@ -49,19 +52,20 @@
         <%= event.cinema.name %>
       </div>
       <% if event.seance %>
-        <div>
-          <h4>Date :</h4>
-          <%= l event.seance.horaire, format: :short %>
-        </div>
-        <div>
-          <h4>Film :</h4>
-          <%= event.seance.film.title %>
-        </div>
+      <div>
+        <h4>Date :</h4>
+        <%= l event.seance.horaire, format: :short %>
+      </div>
+      <div>
+        <h4>Film :</h4>
+        <%= event.seance.film.title %>
+      </div>
       <% end %>
       <div class="show-event">
         <%#= link_to "Réserver !", event.seance.link, target: "_blank", class: "btn bungee btn-primary" if event.seance %>
         <%#= link_to "Répondre !", answer_path(event), class: "btn bungee btn-primary" if !event.seance %>
       </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
