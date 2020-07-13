@@ -21,7 +21,7 @@ class AllocineMoviesService
           film.synopsis = movie["synopsis"]
           film.allocine_id = movie["internalId"]
           film.photo_url = movie["poster"]["url"]
-          film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
+          film.date_release = movie["releases"][-1]["releaseDate"]["date"] if movie["releases"][-1]["releaseDate"]
           film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
           film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
           film.genre = movie["genres"].map { |n| n["translate"] }
@@ -63,7 +63,7 @@ class AllocineMoviesService
             film.synopsis = movie["synopsis"]
             film.allocine_id = movie["internalId"]
             film.photo_url = movie["poster"]["url"]
-            film.date_release = movie["releases"][0]["releaseDate"]["date"] if movie["releases"][0]["releaseDate"]
+            film.date_release = movie["releases"][-1]["releaseDate"]["date"] if movie["releases"][-1]["releaseDate"]
             film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
             film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
             film.genre = movie["genres"].map { |n| n["translate"] }
@@ -77,7 +77,7 @@ class AllocineMoviesService
                      cinema_id: @id,
                      allocine_id: hash2["internalId"],
                      film_id: @film.id }
-            Seance.find_or_create_by(allocine_id: attr[:allocine_id]) do
+            Seance.find_or_create_by(link: attr[:link]) do
               Seance.create!(attr)
             end
           end

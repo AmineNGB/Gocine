@@ -50,11 +50,11 @@ require "awesome_print"
 
 "Creation des films à l\'affiche"
 cinema_attributes = [
-  {
-    name: "Les Amphis",
-    ville: "Vaulx-en-Velin",
-    allocine_id: "P0013",
-  },
+  # {
+  #   name: "Les Amphis",
+  #   ville: "Vaulx-en-Velin",
+  #   allocine_id: "P0013",
+  # },
   {
     name: "Pathé - Bellecour",
     ville: "Lyon",
@@ -76,17 +76,27 @@ cinema_attributes = [
     allocine_id: "P8507",
   },
 ]
+
+ap "Création nouveaux cinémas"
+
 cinema_attributes.each do |attr|
-  ap "---------------------------"
   @cinema = Cinema.find_or_create_by(allocine_id: attr[:allocine_id]) do
     @cinema = Cinema.create!(attr)
   end
 end
 
+ap "Création films et séances"
+
 Cinema.all.each do |cinema|
   ap cinema.name
   cinema.create_movies
   ap "---------------------------"
+end
+
+ap "Destruction anciennes séances"
+
+Seance.all.where("horaire < ?", DateTime.now).each do |seance|
+  seance.destroy
 end
 # favorites_attributes = [
 #   {
