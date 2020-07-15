@@ -75,6 +75,27 @@ cinema_attributes = [
     ville: "Vaulx-en-Velin",
     allocine_id: "P8507",
   },
+  {
+    name: "UGC Ciné Cité Confluence",
+    ville: "Lyon",
+    allocine_id: "W6902",
+  },
+  {
+    name: "CGR Lyon Brignais",
+    ville: "Brignais",
+    allocine_id: "P0905",
+  },
+  {
+    name: "UGC Lyon Part Dieu",
+    ville: "Lyon",
+    allocine_id: "P0035",
+  },
+  {
+    name: "UGC Astoria",
+    ville: "Lyon",
+    allocine_id: "P0005",
+  },
+
 ]
 
 ap "Création nouveaux cinémas"
