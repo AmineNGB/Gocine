@@ -1,12 +1,12 @@
 <div class="forms">
   <div class="event-form">
     <%= simple_form_for(@event) do |f| %>
-      <%= f.input :date, as: :date, html5: true, order: [:day, :month, :year], label: "Date de sortie :" %>
+      <%= f.input :date, as: :date, html5: true, order: [:day, :month, :year], label: "Date de sortie" %>
       <%#= f.input :schedule, wrapper: :vertical_collection_inline, wrapper_html: { class: "radio-horaire" }, collection: [['Matin', :matin], ['Après-midi', :apresmidi], ['Soir', :soir]], as: :radio_buttons, label: "Plage horaire:"%>
-      <p class="col-form-label">Plage horaire du début de la séance : *</p>
+      <p class="col-form-label">Plage horaire du début de la séance *</p>
       <%= f.input :schedule, collection: 9..23,prompt: "Début", label: false%>
       <%= f.input :endschedule, collection: 9..23,prompt: "Fin", label: false%>
-      <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), input_html: { class: "selectpicker", title: "Choisissez votre cinéma", "data-live-search" => "true" }, label: "Cinema:"%>
+      <%= f.input :cinema_id, collection: Cinema.pluck(:name, :id), input_html: { class: "selectpicker", title: "Choisissez votre cinéma", "data-live-search" => "true" }, label: "Cinema"%>
       <%= f.input :user_ids, as: :select, collection: current_user.friends, input_html: { multiple: true, class: "selectpicker", title: "Invitez vos amis", "data-live-search" => "true", "data-max-width" => "28rem", "data-actions-box" => "true" }, label: "Avec qui veux-tu y aller ?" %>
       <%= f.submit "Créer cet événement !", class: 'btn bungee btn-primary submit mt-2 shadow-lg' %>
     <% end %>
