@@ -35,7 +35,7 @@ class AllocineMoviesService
                    cinema_id: @id,
                    allocine_id: hash2["internalId"],
                    film_id: @film.id }
-          Seance.find_or_create_by(allocine_id: attr[:allocine_id]) do
+          Seance.find_or_create_by(link: attr[:link]) do
             Seance.create!(attr)
           end
         end
