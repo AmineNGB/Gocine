@@ -15,6 +15,7 @@
   <div class="form-actions">
     <%= f.button :submit, "Connexion", class: "btn bungee btn-primary" %>
   </div>
-<% end %>
+  <%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path, class: "fb mt-2" %>
+  <% end %>
 <br>
 <%= render "devise/shared/links" %>
