@@ -10,6 +10,7 @@ gem "rails", "6.0.2.1"
 gem "redis"
 gem "devise"
 gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 gem "awesome_print"
 gem "bootstrap-select-rails", "~> 1.6", ">= 1.6.3"
 
