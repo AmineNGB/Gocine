@@ -21,14 +21,18 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def to_s
-    "#{prenom} #{nom}"
+    if self.prenom && self.nom
+      "#{prenom} #{nom}"
+    else
+      "#{email}"
+    end
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  def self.from_omniauth_fb(auth)
+    where(email: auth.info.email).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      ap auth.info
+      # ap auth.info
       user.prenom = auth.info.name.split(" ")[0]   # assuming the user model has a name
       user.nom = auth.info.name.split(" ")[1]
       # user.image = auth.info.image # assuming the user model has an image
@@ -36,7 +40,7 @@ class User < ApplicationRecord
     end
   end
 
-  def self.from_omniauth(access_token)
+  def self.from_omniauth_google(access_token)
     data = access_token.info
     user = User.where(email: data["email"]).first
 
@@ -46,6 +50,7 @@ class User < ApplicationRecord
                          nom: data["last_name"],
                          email: data["email"],
                          password: Devise.friendly_token[0, 20])
+      user.skip_confirmation!
     end
     user
   end
