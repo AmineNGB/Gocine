@@ -13,6 +13,16 @@
     <h2 class="color2 bungee"><%= @cinema.name %></h2>
   <% end %>
 </div>
+<div class="fav-advise">
+  Vous pouvez ici voir les films en ce moment à l'affiche dans les cinémas présents sur le site, ou dans le cinéma sélectionné s'il y en a un.
+  <br>
+  Il vous suffit d'ajouter les films que vous avez envie de voir à votre liste, en cliquant sur le bouton + .
+  <br>
+  Vous avez aussi la possibilité de cliquer sur une affiche pour avoir plus d'infos concernant le film en question.
+  <br>
+  Vous pourrez ensuite les classer dans votre ordre de préférence en allant voir votre liste d'envies, ou en cliquant
+  <%= link_to "ICI", favorites_path, style: "color: black" %>
+</div>
 <div id="main">
   <% @films.each do |film| %>
     <div class="movie-card">
