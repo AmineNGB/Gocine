@@ -9,7 +9,7 @@ class PagesController < ApplicationController
         @favorites << fav.id
       end
     end
-    @films = Film.order("date_release IS NULL, date_release DESC")
+    @films = Film.now_on_theater
 
     if params[:query].present? && params.dig(:query, :id).to_i != 0
       # sql_query = "name ILIKE :query OR ville ILIKE :query"
@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       @cinema = Cinema.find(params.dig(:query, :id).to_i)
       @films = @cinema.films.order("date_release DESC")
     else
-      @films = Film.order("date_release IS NULL, date_release DESC")
+      @films = Film.now_on_theater
     end
   end
 

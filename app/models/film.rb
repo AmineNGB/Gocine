@@ -16,4 +16,12 @@ class Film < ApplicationRecord
       self.rate_press > 4
     end
   end
+
+  def self.now_on_theater
+    films = []
+    Film.order("date_release IS NULL, date_release DESC").each do |film|
+      films << film if film.seances.count > 0
+    end
+    films
+  end
 end
