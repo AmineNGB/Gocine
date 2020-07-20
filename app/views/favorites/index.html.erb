@@ -1,6 +1,11 @@
-<h1 class="text-center color">Classer mes Favoris (<%= current_user.films.count %>)</h1>
+<h1 class="text-center color">Ma liste d'envies (<%= current_user.films.count %>)</h1>
+<div class="fav-advise">
+  Vous pouvez ici classer vos films à voir selon votre ordre de préférence. Plus le film est haut, plus il aura de chance d'être choisi lors de votre prochaine sortie !
+  <br>
+  Pour les classer, il suffit de les faire glisser de haut en bas pour les trier.
+</div>
 <% if current_user.favorites.count < 3 %>
-  <div class="alert-film" role="alert">
+  <div class="alert-film">
     <strong>Attention !</strong> Votre liste de film n'est pas assez fournie pour organiser une sortie. ( Minimum 3 films ) Ajoutez en d'autres en cliquant
     <%= link_to "ICI", root_path, style: "color: black" %>
   </div>
