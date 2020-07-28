@@ -1,10 +1,9 @@
 <!-- <div class="d-flex flex-column"> -->
 <div class="d-flex align-items-center">
   <div class="mr-auto ml-1">
-    <%= link_to :back,
-          class: "goback" do %>
-    <i class="fas fa-caret-square-left fa-3x"></i>
-    <% end %>
+    <div class="goback" onclick="history.back()">
+      <i class="fas fa-caret-square-left fa-3x"></i>
+    </div>
   </div>
   <% if @favorites.include? @film.id %>
   <% else %>
