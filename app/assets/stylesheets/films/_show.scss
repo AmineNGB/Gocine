@@ -23,6 +23,7 @@
   color: $blue;
 
   &:hover {
-    color: $green
+    color: $green;
+    cursor: pointer;
   }
 }
