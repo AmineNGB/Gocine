@@ -118,6 +118,7 @@ ap "Destruction anciennes séances"
 
 Seance.all.where("horaire < ?", DateTime.now).each do |seance|
   seance.destroy
+  ap "Seance #{seance.id} destroyed (#{seance.horaire}"
 end
 # favorites_attributes = [
 #   {
