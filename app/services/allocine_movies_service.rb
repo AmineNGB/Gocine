@@ -14,24 +14,26 @@ class AllocineMoviesService
       movies = JSON.parse(response.body)["results"]
       movies.each do |hash|
         movie = hash["movie"]
+        ap movie
 
         @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
           film.title = movie["title"]
-          film.duration = movie["runtime"]
-          film.synopsis = movie["synopsis"]
-          film.allocine_id = movie["internalId"]
-          film.photo_url = movie["poster"]["url"]
+          film.duration = movie["runtime"] if movie["runtime"]
+          film.synopsis = movie["synopsis"] if movie["synopsis"]
+          film.allocine_id = movie["internalId"] if movie["internalId"]
+          film.photo_url = movie["poster"]["url"] if movie["poster"]["url"]
           film.date_release = movie["releases"][-1]["releaseDate"]["date"] if movie["releases"][-1]["releaseDate"]
           film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+          ap movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
           film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
           film.genre = movie["genres"].map { |n| n["translate"] }
           film.save
         end
 
-        ap @film
+        # ap @film
         @film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         @film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
-        ap @film
+        # ap @film
 
         hash["showtimes"]["multiple"].each do |hash2|
           @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
@@ -64,16 +66,19 @@ class AllocineMoviesService
 
           @film = Film.find_or_create_by(allocine_id: movie["internalId"]) do |film|
             film.title = movie["title"]
-            film.duration = movie["runtime"]
-            film.synopsis = movie["synopsis"]
-            film.allocine_id = movie["internalId"]
-            film.photo_url = movie["poster"]["url"]
+            film.duration = movie["runtime"] if movie["runtime"]
+            film.synopsis = movie["synopsis"] if movie["synopsis"]
+            film.allocine_id = movie["internalId"] if movie["internalId"]
+            film.photo_url = movie["poster"]["url"] if movie["poster"]["url"]
             film.date_release = movie["releases"][-1]["releaseDate"]["date"] if movie["releases"][-1]["releaseDate"]
             film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
             film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
             film.genre = movie["genres"].map { |n| n["translate"] }
             film.save
           end
+
+          @film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
+          @film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
 
           hash["showtimes"]["multiple"].each do |hash2|
             @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
