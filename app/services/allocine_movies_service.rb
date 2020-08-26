@@ -30,10 +30,9 @@ class AllocineMoviesService
           film.save
         end
 
-        # ap @film
         @film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
         @film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
-        # ap @film
+        @film.save
 
         hash["showtimes"]["multiple"].each do |hash2|
           @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
@@ -79,6 +78,7 @@ class AllocineMoviesService
 
           @film.rate_press = movie["stats"]["pressReview"]["score"] if movie["stats"]["pressReview"]
           @film.rate_viewer = movie["stats"]["userRating"]["score"] if movie["stats"]["userRating"]
+          @film.save
 
           hash["showtimes"]["multiple"].each do |hash2|
             @link = hash2["data"]["ticketing"][0]["urls"][0] if hash2["data"]["ticketing"][0]
