@@ -20,15 +20,15 @@
     <%= f.button :submit, "S'inscrire", class: "btn bungee btn-primary" %>
   </div>
 
-  <%= link_to user_facebook_omniauth_authorize_path, class:"fb my-2" do %>
-    <i class="fab fa-facebook"></i>
-    <p>S'inscrire avec Facebook</p>
-  <% end %>
+  <%#= link_to user_facebook_omniauth_authorize_path, class:"fb my-2" do %>
+    <!-- <i class="fab fa-facebook"></i>
+    <p>S'inscrire avec Facebook</p> -->
+  <%# end %>
 
-  <%= link_to user_google_oauth2_omniauth_authorize_path, class:"google my-2" do %>
-  <i class="fab fa-google"></i>
-  <p>S'inscrire avec Google</p>
-  <% end %>
+  <%#= link_to user_google_oauth2_omniauth_authorize_path, class:"google my-2" do %>
+  <!-- <i class="fab fa-google"></i>
+  <p>S'inscrire avec Google</p> -->
+  <%# end %>
 <% end %>
 <br>
 <%= render "devise/shared/links" %>
