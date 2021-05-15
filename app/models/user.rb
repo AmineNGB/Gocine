@@ -15,13 +15,18 @@ class User < ApplicationRecord
   has_many :requester_users, foreign_key: :requester_id, class_name: "FriendRequest"
   has_many :requesteds, through: :requester_users
 
+  validates :email, presence: true, uniqueness: true
+  validates_format_of :email, with: Devise::email_regexp
+  
+  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def to_s
-    if self.prenom && self.nom
+    if prenom && nom
       "#{prenom} #{nom}"
     else
       "#{email}"

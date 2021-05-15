@@ -11,9 +11,8 @@ class Cinema < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_ville,
-    against: [ :name, :ville ],
+    against: [:name, :ville],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true },
     }
-
 end

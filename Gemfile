@@ -37,6 +37,10 @@ group :development do
   gem "rufo"
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
 group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
@@ -44,4 +48,6 @@ group :development, :test do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "dotenv-rails"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end

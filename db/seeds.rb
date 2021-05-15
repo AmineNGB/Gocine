@@ -6,20 +6,20 @@ require "awesome_print"
 # cinema.create_movies
 # end
 # "Cleaning DataBase"
-# User.destroy_all
+User.destroy_all
 # Seance.destroy_all
 # Favorite.destroy_all
 # Cinema.destroy_all
 # Event.destroy_all
-# "User in progress ..."
-# user = User.new
-# user.email = "amine@gmail.com"
-# user.password = "password"
-# user.nom = "test"
-# user.prenom = "Amine"
-# user.phone = "06xxxxxxxx"
-# user.skip_confirmation!
-# user.save!
+"User in progress ..."
+user = User.new
+user.email = "amine@gmail.com"
+user.password = "password"
+user.nom = "test"
+user.prenom = "Amine"
+user.phone = "06xxxxxxxx"
+user.skip_confirmation!
+user.save!
 
 # user2 = User.new
 # user2.email = "nico@gmail.com"
