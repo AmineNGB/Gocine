@@ -2,7 +2,7 @@
   <h2 class="header-answer align-items-center bungee"><%= l @event.date, format: :long %> </h2>
   <h2 class="header-answer align-items-center bungee"><%= @event.cinema.name %> </h2>
 </div>
-<% @event.guests.each do |guest|%>
+<% @event.guests.each do |guest| %>
   <div class=" answer-card ">
     <h3 class="d-flex align-items-center"><%= User.find(guest.user_id).prenom %> <%= User.find(guest.user_id).nom %></h3>
     <% if guest.status == "confirmed" %>
@@ -15,8 +15,8 @@
       </div>
     <% elsif guest.user == current_user %>
       <div class="d-flex align-items-center">
-        <%= link_to "Accepter", confirm_path(@event), class: "btn bungee btn-primary mr-2"%>
-        <%= link_to "Refuser", decline_path(@event), class: "btn bungee btn-danger "%>
+        <%= link_to "Accepter", confirm_path(@event), class: "btn bungee btn-primary mr-2" %>
+        <%= link_to "Refuser", decline_path(@event), class: "btn bungee btn-danger " %>
       </div>
     <% else %>
       <i id="pending" class="far fa-clock fa-3x d-flex align-items-center"></i>

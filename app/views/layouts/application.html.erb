@@ -37,24 +37,24 @@
   <title>GoCiné - Organisez une sortie au ciné de manière simple et efficace !</title>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-  <%#= stylesheet_pack_tag 'application', media: 'all' %>
+  <% #= stylesheet_pack_tag 'application', media: 'all' %>
   <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 </head>
 
 <body>
   <div class="corps">
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/banner' if current_page?(root_path) %>
-    <%= render 'shared/flashes' %>
+    <%= render "shared/navbar" %>
+    <%= render "shared/banner" if current_page?(root_path) %>
+    <%= render "shared/flashes" %>
     <div class="container">
       <%= yield %>
     </div>
   </div>
-  <%= render 'shared/footer' %>
+  <%= render "shared/footer" %>
 
-  <%= javascript_pack_tag 'application' %>
+  <%= javascript_pack_tag "application" %>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   

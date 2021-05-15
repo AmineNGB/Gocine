@@ -1,6 +1,5 @@
 <div class="navbar navbar-expand navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %> <%= image_tag "logo.png" %> <%
-  end %>
+  <%= link_to "/", class: "navbar-brand" do %> <%= image_tag "logo.png" %> <% end %>
     <!-- <%= link_to new_event_path, class: "navbar-plus" do %>
   <%= image_tag "plus.svg" %>
   <% end %> -->
@@ -12,7 +11,7 @@
         Mes envies <% end %>
       </div>
       <div class="friends-icon btn-nav">
-          <% if current_user.requested_friends.count > 0  %>
+          <% if current_user.requested_friends.count > 0 %>
             <div class="notification-badge friends-notification">
               <%= current_user.requested_friends.count %>
             </div>
@@ -37,10 +36,9 @@
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
-              <%= image_tag "scream.svg", class: "avatar-large dropdown-toggle", id:
-          "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true,
-          'aria-expanded': false %>
-            <% if current_user.pending_events.count > 0  %>
+              <%= image_tag "scream.svg", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true,
+                                          'aria-expanded': false %>
+            <% if current_user.pending_events.count > 0 %>
               <div class="notification-badge events-notification">
                 <%= current_user.pending_events.count %>
               </div>
@@ -53,7 +51,7 @@
                 <%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Ma liste de films", favorites_path, class: "dropdown-item" %>
                 <%= link_to "Mes sorties", my_events_path, class: "dropdown-item" %>
-                <% if current_user.pending_events.count > 0  %>
+                <% if current_user.pending_events.count > 0 %>
                   <div class="notification-badge events-notification-list">
                       <%= current_user.pending_events.count %>
                   </div>

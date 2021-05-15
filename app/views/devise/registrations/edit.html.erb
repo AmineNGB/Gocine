@@ -20,16 +20,16 @@
     <%= f.input :nom %>
     <%= f.input :prenom, label: "Prénom" %>
     <%= f.input :password, label: "Nouveau mot de passe",
-  hint: "Laisser vide si pas de changement",
-  required: false,
-  input_html: { autocomplete: "new-password" } %>
+                           hint: "Laisser vide si pas de changement",
+                           required: false,
+                           input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
-  required: false, label: "Confirmation",
-  input_html: { autocomplete: "new-password" } %>
+                required: false, label: "Confirmation",
+                input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-  hint: "Nous avons besoin de votre mot de passe actuel pour pouvoir le modifier",
-  required: true, label: "Mot de passe actuel",
-  input_html: { autocomplete: "current-password" } %>
+                hint: "Nous avons besoin de votre mot de passe actuel pour pouvoir le modifier",
+                required: true, label: "Mot de passe actuel",
+                input_html: { autocomplete: "current-password" } %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Mettre à jour", class: "btn bungee btn-primary mb-2" %>

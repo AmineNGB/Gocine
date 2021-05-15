@@ -10,11 +10,11 @@
       <% end %>
       <% @friends.each do |friend| %>
         <li class="list-group-item friend-line">
-          <%=friend.prenom + " " + friend.nom %>
+          <%= friend.prenom + " " + friend.nom %>
           <div>
             <%= link_to "", delete_friend_path(friend.id), title: "Supprimer cet ami", data: { confirm: "Es tu
-          sur de vouloir supprimer #{friend.prenom} de tes amis ?" }, class: "fa
-          fa-user-alt-slash", style: "color: red; text-decoration: none" %>
+                          sur de vouloir supprimer #{friend.prenom} de tes amis ?" }, class: "fa
+                          fa-user-alt-slash", style: "color: red; text-decoration: none" %>
           </div>
         </li>
       <% end %>
@@ -25,23 +25,22 @@
         <h3>En attente</h3>
         <% @friend_requests.each do |friend| %>
           <li class="list-group-item friend-line">
-            <%=friend.prenom + " " + friend.nom %>
+            <%= friend.prenom + " " + friend.nom %>
             <div class="d-flex">
               <div>
                 <%= link_to "", accept_friend_path(friend.id), title: "Accepter la demande", class: "fa fa-check",
-            style: "color: green; font-size: 20px; text-decoration: none" %>
+                                                               style: "color: green; font-size: 20px; text-decoration: none" %>
               </div>
               <div>
                 <%= link_to "", decline_friend_path(friend.id), title: "Refuser la demande", class: "fa fa-times
-            ml-4", style: "color: red; font-size: 20px; text-decoration: none"
-            %>
+                                ml-4", style: "color: red; font-size: 20px; text-decoration: none" %>
               </div>
             </div>
           <% end %>
         </li>
         <% @pending_friends.each do |friend| %>
           <li class="list-group-item friend-line disabled ">
-            <%=friend.prenom + " " + friend.nom %>
+            <%= friend.prenom + " " + friend.nom %>
             <div class="fa fa-clock ml-4">
             </div>
           </li>
@@ -51,9 +50,9 @@
   </div>
   <div class="friends-form">
     <h3>Ajouter un ami</h3>
-    <%= form_with(url: request_friend_path, method: "post", html: { class: 'form-group' }, local: true) do %>
-      <%= text_field_tag(:email, "" , class: 'form-control', placeholder: 'toto@email.com') %>
-      <%= submit_tag("Ajouter !", class: 'btn bungee btn-primary mt-2') %>
+    <%= form_with(url: request_friend_path, method: "post", html: { class: "form-group" }, local: true) do %>
+      <%= text_field_tag(:email, "", class: "form-control", placeholder: "toto@email.com") %>
+      <%= submit_tag("Ajouter !", class: "btn bungee btn-primary mt-2") %>
     <% end %>
   </div>
 </div>

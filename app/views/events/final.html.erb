@@ -5,7 +5,7 @@
         <h1 class=""><strong>Votre séance</strong></h1>
         <h2 class=" bungee"><strong> <%= @event.seance.film.title %> </strong></h2>
       </div>
-      <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in"%>
+      <%= image_tag (@event.seance.film.photo_url), class: "affiche-finale fade-in" %>
       <div class="info enter-in">
         <div class="resume d-flex bd-highlight">
           <!-- <h4>Cinéma :</h4> -->
@@ -20,11 +20,11 @@
             <h4 class="bd-highlight">Avec :</h4>
           </div>
           <div class=" ml-auto bd-highlight font-weight-bold">
-            <% @event.participants.each do |guest|%>
+            <% @event.participants.each do |guest| %>
               <% user = guest.user %>
               <p><%= user.nom %>
                 <%= user.prenom %></p>
-            <%end%>
+            <% end %>
           </div>
         </div>
         <a target="_blank" class="btn bungee btn-primary mt-4" href="<%= Seance.find(@event.seance_id).link %>">Réservez ici !</a>

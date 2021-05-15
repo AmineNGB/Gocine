@@ -1,16 +1,15 @@
 <div id="center">
   <div id="lock">
     <h1 id="zest"><strong>Votre soirée</strong></h1>
-    <%= image_tag (@event.seance.film.photo_url), class: "tof", size:"180x240"
-    %>
+    <%= image_tag (@event.seance.film.photo_url), class: "tof", size: "180x240" %>
     <div class="info">
       <p><strong><%= Cinema.find(Event.last.cinema_id).name %></strong></p>
       <p><strong><%= I18n.l(@date, format: :long, locale: :'fr') %></strong></p>
-      <% Event.last.users.each do |user|%>
+      <% Event.last.users.each do |user| %>
       <div class="d-flex justify-content-center font-weight-bold">
         <%= user.nom %> <%= user.prenom %>
       </div>
-      <%end%>
+      <% end %>
     </div>
     <h3>Bon Film !</h3>
   </div>
