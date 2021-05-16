@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :guests
   has_many :users, through: :guests
   belongs_to :seance, optional: true
+  belongs_to :cinema
   has_one :film, through: :seance
   accepts_nested_attributes_for :guests
 
@@ -56,10 +57,6 @@ class Event < ApplicationRecord
 
   def date_fr
     date.strftime("%A %d %B")
-  end
-
-  def cinema
-    Cinema.find(cinema_id)
   end
 
   def creator

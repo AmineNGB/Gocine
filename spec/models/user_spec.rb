@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   it { should have_many(:favorites) }
@@ -15,20 +15,19 @@ RSpec.describe User, type: :model do
   it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
 
   describe "to_s" do
-    context "when user has nom and prenom"  do
+    context "when user has nom and prenom" do
       it "return a string with prenom nom" do
         user = create(:user, nom: "ngb", prenom: "amine")
 
-        expect(user.to_s).to  eq("amine ngb")
+        expect(user.to_s).to eq("amine ngb")
       end
     end
     context "when user doesn't fill nom and prenom" do
       it "return a string with prenom nom" do
         user = create(:user, nom: nil, prenom: nil, email: "nil@example.com")
 
-        expect(user.to_s).to  eq("nil@example.com")
+        expect(user.to_s).to eq("nil@example.com")
       end
     end
   end
-  
 end

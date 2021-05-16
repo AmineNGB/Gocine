@@ -3,6 +3,6 @@ class Favorite < ApplicationRecord
   acts_as_list scope: :user
   belongs_to :film
 
-  validates :film, presence: true, uniqueness: { scope: :user, message: "deja ajouté à la liste" }
+  validates :film, presence: true
   validates :user, presence: true
 end
