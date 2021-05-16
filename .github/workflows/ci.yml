@@ -62,7 +62,6 @@ jobs:
 
       - name: Create CI related files
         run: |
-          cp .sample.env .env
           cp .github/database.yml.github-actions config/database.yml
       - name: Set up DB
         env:
