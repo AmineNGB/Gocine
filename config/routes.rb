@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # get 'users/profile' , as: :profile
+  default_url_options host: "localhost:3000"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users do
     member do
