@@ -28,7 +28,7 @@ gem "has_friendship"
 
 gem "select2-rails"
 # gem 'rest-client', '~> 1.8'
-gem "httparty", "~> 0.13.7"
+gem "httparty", "~> 0.21.0"
 gem "rails-i18n"
 gem "clipboard-rails"
 
